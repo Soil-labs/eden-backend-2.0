@@ -1,0 +1,26 @@
+module.exports = `
+
+    type Members {
+        _id: ID
+        
+        discordName: String
+        discordAvatar: String
+        discriminator: String
+        bio: String
+
+    }
+
+
+    input findMemberInput {
+        _id: ID
+        serverID: [String]
+    }
+
+    input addNewMemberInput {
+        _id: ID
+        discordName: String
+        discordAvatar: String
+        discriminator: String
+        bio: String
+    }
+`
