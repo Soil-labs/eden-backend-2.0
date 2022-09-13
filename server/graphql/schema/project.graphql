@@ -1,13 +1,83 @@
 module.exports = `
     
 
+    # ---------- Member --------------
+
     type Project {
         _id: ID
         title: String
         description: String
 
+        """ Team Members of the Project """
+        teamMembers: [ProjectTeamMember]
 
+        """ Available Roles of the Project """
+        roles: [ProjectRole]
+
+
+        serverID: [String],
+        gardenServerID: String,
     }
+
+
+    type ProjectTeamMember {
+        """ Information of this Team Member 👬 """
+        info: Member
+        """ The Role of this Member in the Project """
+        role: ProjectRole
+        """ Phase of the application for this member """
+        phase: PhaseEnum
+    }
+
+    type ProjectRole {
+        _id: ID
+        title: String
+        description: String
+    }
+
+    enum PhaseEnum {
+        SHORTLISTED
+        ENGAGED
+        COMMITTED
+        REJECTED
+        INVITED
+    }
+
+    # ---------- Member --------------
+
+
+
+
+    # ---------- Input --------------
+
+    # ------- Project General ------
+    input addProjectInput { 
+        title: String
+    }
+
+    input updateProjectInput { 
+        _id: ID!
+        title: String
+        description: String
+    }
+    # ------- Project General ------
+
+    
+    # ------- Project Role ------
+    input addProjectRoleInput { 
+        title: String
+        description: String
+    }
+
+    input updateProjectRoleInput { 
+        _id: ID!
+        title: String
+        description: String
+    }
+    # ------- Project Role ------
+
+    # ---------- Input --------------
+
 
     
 

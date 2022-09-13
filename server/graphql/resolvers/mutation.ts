@@ -1,9 +1,14 @@
-const { addNewMember } =  require('./mutation/memberMutation')
+const { addMember } =  require('./mutation/memberMutation')
 
 
 module.exports = {
     Mutation: {
-      addNewMember
+      // ------------ Member -----------
+      addMember
+      // ------------ Member -----------
+
+      // ------------ Project -----------
+      // ------------ Project -----------
 
     }
 }

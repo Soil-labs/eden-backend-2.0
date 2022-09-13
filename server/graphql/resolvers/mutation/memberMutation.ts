@@ -16,9 +16,9 @@ interface Fields {
 
 
 module.exports = {
-    addNewMember: async (parent:{parent:any}, args:{args:any, fields:any}, context: {context:any}, info: {info:any}) => {
+    addMember: async (parent:{parent:any}, args:{args:any, fields:any}, context: {context:any}, info: {info:any}) => {
         const {discordName,_id,discordAvatar,discriminator, bio,hoursPerWeek,previusProjects,invitedBy,serverID} = args.fields;
-        console.log("Mutation > addNewMember > args.fields = " , args.fields)
+        console.log("Mutation > addMember > args.fields = " , args.fields)
         if (!_id) throw new ApolloError( "_id is required, the IDs come from Discord");
 
         let fields: Fields = <any>{};

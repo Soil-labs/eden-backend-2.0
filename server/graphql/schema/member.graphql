@@ -11,13 +11,13 @@ module.exports = `
         """ The picture of the user on Discord"""
         avatar: String
         
-        onbording: onboardingType
+        onbording: Onboarding
 
         info: Info
 
-        skills: [skillType_member],
+        skills: [SkillAndLevel],
 
-        projects: [projectType_member],
+        projects: [ProjectOfMember],
 
         servers: [Server],
 
@@ -26,12 +26,12 @@ module.exports = `
 
     }
 
-    type projectType_member {
+    type ProjectOfMember {
         info: Project,
     }
 
     """ All the information about onboarding """
-    type onboardingType {
+    type Onboarding {
         """ 💡 If someone finish the basic signup, this variable will be true """
         signup: Boolean
         """ 📝 Here you can see the progress of the signup for this user """
@@ -39,18 +39,6 @@ module.exports = `
 
     }
 
-    """ 💡 Every Skill have the information and the level """
-    type skillType_member  {
-        info: Skill
-        level: levelEnum
-    }
-
-    enum levelEnum {
-        learning
-        junior
-        mid
-        senior
-    }
 
     """ This is the Info of the Member 🧑‍💼  """
     type Info {
@@ -70,24 +58,33 @@ module.exports = `
         hoursPerWeek: Float
         timeZone: String
         """ The Links that are saved during signup for the user """
-        links: [LinkType],
+        links: [Link],
 
     }
 
     """ 💡 You can either use the handle or the url of the link """
-    type LinkType {
-        name: String
-        emoji: String
+    type Link {
+        name: nameEnum
         
-        type: linkTypeEnum
+        """ The url need to be constracted at the Front, even if only the handle is used, the backEnd need to take the whole url """ 
         url: String
-        handle: String
+
+        """ If the name is Other you can choose the name """
+        nameCustom: String
+        """ If the name is Other you can save your image on the FrontEnd"""
+        imgCustom: String
     }
 
-    """ Choose if the link is saved as enum or Handle """
-    enum linkTypeEnum {
-        Handle
-        Url
+    """ Choose the website that you want to save for this link """
+    enum nameEnum {
+        GITHUB
+        LINKEDIN
+        INSTAGRAM
+        YOUTUBE
+        TWITTER
+        DEWORK
+        LENS
+        OTHER
     }
     
 
@@ -102,16 +99,19 @@ module.exports = `
     # ---------- Member --------------
 
 
+    # ---------- Input --------------
     input findMemberInput {
         _id: ID
         serverID: [String]
     }
 
-    input addNewMemberInput {
+    input addMemberInput {
         _id: ID
         discordName: String
         discordAvatar: String
         discriminator: String
         bio: String
     }
+    # ---------- Input --------------
+
 `
