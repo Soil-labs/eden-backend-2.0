@@ -1,7 +1,7 @@
 {
   "name": "eden-backend-2.0",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server.ts",
   "repository": "https://github.com/Soil-labs/eden-backend-2.0.git",
   "author": "moiz-lakkadkutta <moizlakkadkutta1@gmail.com>",
   "license": "MIT",
