@@ -4,9 +4,11 @@ const mutation = require('./mutation.graphql')
 const memberType = require('./member.graphql');
 const serverType = require('./server.graphql');
 const skillType = require('./skill.graphql');
-const skillCategory = require('./skillCategory.graphql');
-const skillSubCategory = require('./skillSubCategory.graphql');
-const project = require('./project.graphql');
+const skillCategoryType = require('./skillCategory.graphql');
+const skillSubCategoryType = require('./skillSubCategory.graphql');
+const projectType = require('./project.graphql');
+const generalType = require('./general.graphql');
+
 
 
 
@@ -17,9 +19,10 @@ ${mutation}
 ${memberType}
 ${serverType}
 ${skillType}
-${skillCategory}
-${skillSubCategory}
-${project}
+${skillCategoryType}
+${skillSubCategoryType}
+${projectType}
+${generalType}
 `;
 
 export default typeDefs

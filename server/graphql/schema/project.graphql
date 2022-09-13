@@ -46,37 +46,86 @@ module.exports = `
     # ---------- Member --------------
 
 
+    # ---------- QUERY - Functions --------------
+
+        # ------- Project General - Functions ------
+        input findProjectInput {
+            _id: ID!
+        }
 
 
-    # ---------- Input --------------
+            # ------- findProjects ------
+            input FindProjects {
+                _id: [ID]
+                serverID: [String]
+                gardenServerID: String
+            }
 
-    # ------- Project General ------
-    input addProjectInput { 
-        title: String
-    }
+            type FindProjectsOutput{
+                edges: [ProjectEdge]
+                pageInfo: PageInfo
+            }
+            
+            type ProjectEdge {
+                cursor: String
+                node: Project
+            }
+            # ------- findProjects ------
 
-    input updateProjectInput { 
-        _id: ID!
-        title: String
-        description: String
-    }
-    # ------- Project General ------
+
+        # ------- Project General - Functions ------
+
+
+
+
+        # ------- Project Role - Functions ------
+        input findProjectRoleInput {
+            _id: ID!
+        }
+
+        input findProjectRolesInput {
+            _id: [ID]
+        }
+        # ------- Project Role - Functions ------
+
+    # ---------- QUERY - Functions --------------
+
+
+
+    # ---------- MUTATION - Functions --------------
+
+
+        # ------- Project General - Functions ------
+        input addProjectInput { 
+            title: String
+        }
+
+        input updateProjectInput { 
+            _id: ID!
+            title: String
+            description: String
+        }
+        # ------- Project General - Functions ------
+
+
+        
+        # ------- Project Role - Functions ------
+        input addProjectRoleInput { 
+            title: String
+            description: String
+        }
+
+        input updateProjectRoleInput { 
+            _id: ID!
+            title: String
+            description: String
+        }
+        # ------- Project Role - Functions ------
+
+    # ---------- MUTATION - Functions --------------
+
 
     
-    # ------- Project Role ------
-    input addProjectRoleInput { 
-        title: String
-        description: String
-    }
-
-    input updateProjectRoleInput { 
-        _id: ID!
-        title: String
-        description: String
-    }
-    # ------- Project Role ------
-
-    # ---------- Input --------------
 
 
     

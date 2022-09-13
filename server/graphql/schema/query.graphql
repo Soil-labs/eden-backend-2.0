@@ -1,7 +1,25 @@
 module.exports = `
     type Query{
         
+        #  ------------ Member -----------
         findMember(fields:findMemberInput): Member
+        #  ------------ Member -----------
+
+        #  ------------ Project -----------
+
+            # ------- Project General ------
+            findProject(fields:findProjectInput): Project
+            findProjects(fields:findProjectsInput): FindProjectsOutput
+
+            # ------- Project General ------
+
+
+            # ------- Project Role ------
+            findProjectRole(fields:findProjectRoleInput): ProjectRole
+            findProjectRoles(fields:findProjectRolesInput): [ProjectRole]
+            # ------- Project Role ------
+
+        #  ------------ Project -----------
     }
 
 

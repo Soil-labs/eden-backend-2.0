@@ -7,16 +7,17 @@ module.exports = `
 
         #  ------------ Project -----------
 
-        # ------- Project General ------
-        addProject(fields:addProjectInput!): Project
-        updateProject(fields:updateProjectInput!): Project
-        # ------- Project General ------
+            # ------- Project General ------
+            addProject(fields:addProjectInput!): Project
+            updateProject(fields:updateProjectInput!): Project
+            # ------- Project General ------
 
 
-        # ------- Project Role ------
-        addProjectRole(fields:addProjectRoleInput!): ProjectRole
-        updateProjectRole(fields:updateProjectRoleInput!): ProjectRole
-        # ------- Project Role ------
+            # ------- Project Role ------
+            addProjectRole(fields:addProjectRoleInput!): ProjectRole
+            updateProjectRole(fields:updateProjectRoleInput!): ProjectRole
+            deleteProjectRole(_id: ID!): ProjectRole
+            # ------- Project Role ------
 
         #  ------------ Project -----------
 
