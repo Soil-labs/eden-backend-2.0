@@ -2,7 +2,19 @@ module.exports = `
 
     type Mutation {
         #  ------------ Member -----------
-        addMember(request:addMemberInput!): Member
+
+            # ------- Member General ------
+            addMember(request:addMemberInput!): Member
+            updateMember(request:updateMemberInput!): Member
+            # ------- Member General ------
+
+
+            # ------- Member Skills ------
+            addMemberSkills(request:addMemberSkillsInput!): Member
+            deleteMemberSkills(skillID: [ID!]!): Member
+            # ------- Member Skills ------
+
+
         #  ------------ Member -----------
 
         #  ------------ Project -----------
@@ -19,7 +31,21 @@ module.exports = `
             deleteProjectRole(_id: ID!): ProjectRole
             # ------- Project Role ------
 
+
+            # ------- Project Team Member ------
+            addProjectTeamMember(request:addProjectTeamMemberInput!): ProjectTeamMember
+            updateProjectTeamMember(request:updateProjectTeamMemberInput!): ProjectTeamMember
+            deleteProjectTeamMember(request: deleteProjectTeamMemberInput ): ProjectTeamMember
+            # ------- Project Team Member ------
+
         #  ------------ Project -----------
+
+
+        #  ------------ Skills -----------
+        addSkills(request:[addSkillInput]!): [Skill]
+        approveOrRejectSkills(request:[approveOrRejectSkillInput]): [Skill]
+        #  ------------ Skills -----------
+
 
     }
 `
