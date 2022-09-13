@@ -1,0 +1,14 @@
+module.exports = `
+    
+
+    type Server {
+        _id: ID
+        name: String,
+        adminID: [String],
+        adminRoles: [String],
+        adminCommands: [String], 
+
+    }
+    
+
+`
