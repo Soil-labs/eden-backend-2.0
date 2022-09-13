@@ -6,6 +6,8 @@
   "author": "moiz-lakkadkutta <moizlakkadkutta1@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "ts-node server/server.ts",
+    "dev": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "start": "node server/server.js"
   },
   "devDependencies": {
