@@ -1,6 +1,6 @@
 module.exports = `
 
     type Mutation {
-        addNewMember(fields:addNewMemberInput!): Members
+        addNewMember(fields:addNewMemberInput!): Member
     }
 `
