@@ -8,7 +8,7 @@
   "scripts": {
     "build:staging": "env-cmd -f .env.staging npm run build",
     "dev": "nodemon -e ts --exec \"ts-node server/server.ts\"",
-    "start": "node server/server.ts"
+    "start": "nodemon -e ts --exec \"ts-node server/server.ts\""
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
