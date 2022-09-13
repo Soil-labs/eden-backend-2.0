@@ -1,0 +1,28 @@
+module.exports = `
+    
+    type Skill {
+        _id: ID
+        name: String,
+        description: String,
+
+        state: approvedSkillEnum,
+
+        subCategorySkill: [SkillSubCategory],
+        categorySkills: [SkillCategory],
+        
+        relatedSkills: [Skill],
+
+        id_lightcast: String,
+
+        registeredAt: String,
+        
+    }
+
+    enum approvedSkillEnum {
+        waiting
+        rejected
+        approved
+    }
+    
+
+`

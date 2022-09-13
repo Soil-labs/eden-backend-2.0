@@ -1,0 +1,20 @@
+module.exports = `
+    
+
+    type SkillSubCategory {
+        _id: ID
+        name: String,
+        description: String,
+
+        skills: [Skill], 
+        categoriesSkill: [SkillCategory],
+        
+         
+        id_lightcast: String,
+
+        emoji: String,
+    }
+
+    
+
+`

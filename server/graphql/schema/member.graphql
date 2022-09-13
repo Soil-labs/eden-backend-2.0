@@ -5,11 +5,51 @@ module.exports = `
     # ---------- Member --------------
     type Member {
         _id: ID
+
+        """ The Discord Name of the member """
+        name: String
+        """ The picture of the user on Discord"""
+        avatar: String
         
+        onbording: onboardingType
+
         info: Info
 
-        server: [Server],
+        skills: [skillType_member],
 
+        projects: [projectType_member],
+
+        servers: [Server],
+
+
+        registeredAt: String,
+
+    }
+
+    type projectType_member {
+        info: Project,
+    }
+
+    """ All the information about onboarding """
+    type onboardingType {
+        """ 💡 If someone finish the basic signup, this variable will be true """
+        signup: Boolean
+        """ 📝 Here you can see the progress of the signup for this user """
+        percentage: Int
+
+    }
+
+    """ 💡 Every Skill have the information and the level """
+    type skillType_member  {
+        info: Skill
+        level: levelEnum
+    }
+
+    enum levelEnum {
+        learning
+        junior
+        mid
+        senior
     }
 
     """ This is the Info of the Member 🧑‍💼  """
@@ -20,17 +60,36 @@ module.exports = `
 
     """ All the info that we collect and use on Discord """
     type DiscordInfo {
-        name: String
-        """ The picture of the user on Discord"""
-        avatar: String
         """ On Discord every user has a discriminator that looks like H%1234 for example BluePandaH%231234"""
-        discriminator: String
+        discriminator: String 
     }
 
     """ All the info that we collect and use on Member """
     type GeneralInfo {
         content: Content
+        hoursPerWeek: Float
+        timeZone: String
+        """ The Links that are saved during signup for the user """
+        links: [LinkType],
+
     }
+
+    """ 💡 You can either use the handle or the url of the link """
+    type LinkType {
+        name: String
+        emoji: String
+        
+        type: linkTypeEnum
+        url: String
+        handle: String
+    }
+
+    """ Choose if the link is saved as enum or Handle """
+    enum linkTypeEnum {
+        Handle
+        Url
+    }
+    
 
     """ All the content that the user has created during signup ✍️"""
     type Content {
