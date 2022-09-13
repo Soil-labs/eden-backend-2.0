@@ -23,6 +23,21 @@ module.exports = `
         rejected
         approved
     }
+
+
+    """ 💡 Every Skill have the information and the level """
+    type SkillAndLevel  {
+        info: Skill
+        level: levelEnum
+    }
+
+    """ 🛠 This is the Level of proficiency for this specific Skill """
+    enum levelEnum {
+        LEARNING
+        JUNIOR
+        MID
+        SENIOR
+    }
     
 
 `

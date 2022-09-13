@@ -1,13 +1,132 @@
 module.exports = `
     
 
+    # ---------- Member --------------
+
     type Project {
         _id: ID
         title: String
         description: String
 
+        """ Team Members of the Project """
+        teamMembers: [ProjectTeamMember]
 
+        """ Available Roles of the Project """
+        roles: [ProjectRole]
+
+
+        serverID: [String],
+        gardenServerID: String,
     }
+
+
+    type ProjectTeamMember {
+        """ Information of this Team Member 👬 """
+        info: Member
+        """ The Role of this Member in the Project """
+        role: ProjectRole
+        """ Phase of the application for this member """
+        phase: PhaseEnum
+    }
+
+    type ProjectRole {
+        _id: ID
+        title: String
+        description: String
+    }
+
+    enum PhaseEnum {
+        SHORTLISTED
+        ENGAGED
+        COMMITTED
+        REJECTED
+        INVITED
+    }
+
+    # ---------- Member --------------
+
+
+    # ---------- QUERY - Functions --------------
+
+        # ------- Project General - Functions ------
+        input findProjectInput {
+            _id: ID!
+        }
+
+
+            # ------- findProjects ------
+            input FindProjects {
+                _id: [ID]
+                serverID: [String]
+                gardenServerID: String
+            }
+
+            type FindProjectsOutput{
+                edges: [ProjectEdge]
+                pageInfo: PageInfo
+            }
+            
+            type ProjectEdge {
+                cursor: String
+                node: Project
+            }
+            # ------- findProjects ------
+
+
+        # ------- Project General - Functions ------
+
+
+
+
+        # ------- Project Role - Functions ------
+        input findProjectRoleInput {
+            _id: ID!
+        }
+
+        input findProjectRolesInput {
+            _id: [ID]
+        }
+        # ------- Project Role - Functions ------
+
+    # ---------- QUERY - Functions --------------
+
+
+
+    # ---------- MUTATION - Functions --------------
+
+
+        # ------- Project General - Functions ------
+        input addProjectInput { 
+            title: String
+        }
+
+        input updateProjectInput { 
+            _id: ID!
+            title: String
+            description: String
+        }
+        # ------- Project General - Functions ------
+
+
+        
+        # ------- Project Role - Functions ------
+        input addProjectRoleInput { 
+            title: String
+            description: String
+        }
+
+        input updateProjectRoleInput { 
+            _id: ID!
+            title: String
+            description: String
+        }
+        # ------- Project Role - Functions ------
+
+    # ---------- MUTATION - Functions --------------
+
+
+    
+
 
     
 

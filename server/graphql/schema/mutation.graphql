@@ -1,6 +1,25 @@
 module.exports = `
 
     type Mutation {
-        addNewMember(fields:addNewMemberInput!): Member
+        #  ------------ Member -----------
+        addMember(fields:addMemberInput!): Member
+        #  ------------ Member -----------
+
+        #  ------------ Project -----------
+
+            # ------- Project General ------
+            addProject(fields:addProjectInput!): Project
+            updateProject(fields:updateProjectInput!): Project
+            # ------- Project General ------
+
+
+            # ------- Project Role ------
+            addProjectRole(fields:addProjectRoleInput!): ProjectRole
+            updateProjectRole(fields:updateProjectRoleInput!): ProjectRole
+            deleteProjectRole(_id: ID!): ProjectRole
+            # ------- Project Role ------
+
+        #  ------------ Project -----------
+
     }
 `
