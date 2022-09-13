@@ -2,21 +2,21 @@ module.exports = `
     type Query{
         
         #  ------------ Member -----------
-        findMember(fields:findMemberInput): Member
+        findMember(request:findMemberInput): Member
         #  ------------ Member -----------
 
         #  ------------ Project -----------
 
             # ------- Project General ------
-            findProject(fields:findProjectInput): Project
-            findProjects(fields:findProjectsInput): FindProjectsOutput
+            findProject(request:findProjectInput): Project
+            findProjects(request:findProjectsInput,orderBy:OrderBy,cursor: String, limit: Int): FindProjectsOutput
 
             # ------- Project General ------
 
 
             # ------- Project Role ------
-            findProjectRole(fields:findProjectRoleInput): ProjectRole
-            findProjectRoles(fields:findProjectRolesInput): [ProjectRole]
+            findProjectRole(request:findProjectRoleInput): ProjectRole
+            findProjectRoles(request:findProjectRolesInput): [ProjectRole]
             # ------- Project Role ------
 
         #  ------------ Project -----------

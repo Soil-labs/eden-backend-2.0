@@ -55,7 +55,7 @@ module.exports = `
 
 
             # ------- findProjects ------
-            input FindProjects {
+            input findProjectsInput {
                 _id: [ID]
                 serverID: [String]
                 gardenServerID: String

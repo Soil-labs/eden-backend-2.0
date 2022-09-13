@@ -7,4 +7,18 @@ module.exports = `
         endCursor: String
     }
 
+    input OrderBy {
+        field: OrderField
+        direction: OrderDirection
+    }
+    
+    enum OrderField {
+        PUBLISHED_AT
+        UPDATED_AT
+    }
+
+    enum OrderDirection {
+        ASC
+        DESC
+    }
 `
