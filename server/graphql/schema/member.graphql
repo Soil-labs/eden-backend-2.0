@@ -13,7 +13,7 @@ module.exports = `
         
         onbording: Onboarding
 
-        info: Info
+        content: Content
 
         skills: [SkillAndLevel],
 
@@ -26,8 +26,12 @@ module.exports = `
 
     }
 
+    """ Automatically gets update by ProjectTeamMember """
     type ProjectOfMember {
-        info: Project,
+        info: Project
+        role: ProjectRole
+        phase: PhaseProjectRoleEnum
+
     }
 
     """ All the information about onboarding """
@@ -40,20 +44,20 @@ module.exports = `
     }
 
 
-    """ This is the Info of the Member 🧑‍💼  """
-    type Info {
-        discord: DiscordInfo
-        general: GeneralInfo
+    """ This is the Content of the Member 🧑‍💼  """
+    type Content {
+        discord: DiscordContent
+        general: GeneralContent
     }
 
     """ All the info that we collect and use on Discord """
-    type DiscordInfo {
+    type DiscordContent {
         """ On Discord every user has a discriminator that looks like H%1234 for example BluePandaH%231234"""
         discriminator: String 
     }
 
     """ All the info that we collect and use on Member """
-    type GeneralInfo {
+    type GeneralContent {
         content: Content
         hoursPerWeek: Float
         timeZone: String
@@ -62,30 +66,6 @@ module.exports = `
 
     }
 
-    """ 💡 You can either use the handle or the url of the link """
-    type Link {
-        name: nameEnum
-        
-        """ The url need to be constracted at the Front, even if only the handle is used, the backEnd need to take the whole url """ 
-        url: String
-
-        """ If the name is Other you can choose the name """
-        nameCustom: String
-        """ If the name is Other you can save your image on the FrontEnd"""
-        imgCustom: String
-    }
-
-    """ Choose the website that you want to save for this link """
-    enum nameEnum {
-        GITHUB
-        LINKEDIN
-        INSTAGRAM
-        YOUTUBE
-        TWITTER
-        DEWORK
-        LENS
-        OTHER
-    }
     
 
     """ All the content that the user has created during signup ✍️"""
@@ -99,19 +79,44 @@ module.exports = `
     # ---------- Member --------------
 
 
-    # ---------- Input --------------
+    # ---------- QUERY - Functions --------------
     input findMemberInput {
         _id: ID
         serverID: [String]
     }
 
-    input addMemberInput {
-        _id: ID
-        discordName: String
-        discordAvatar: String
-        discriminator: String
-        bio: String
-    }
-    # ---------- Input --------------
+    
+    # ---------- QUERY - Functions --------------
+
+    # ---------- MUTATION - Functions --------------
+
+        # ------- Member General - Functions ------
+        input addMemberInput {
+            _id: ID
+            name: String
+            avatar: String
+            discriminator: String
+        }
+
+        input updateMemberInput {
+            _id: ID!
+            name: String
+            avatar: String
+            discriminator: String
+            
+        }
+        # ------- Member General - Functions ------
+
+
+        # ------- Member Skills - Functions ------
+        input addMemberSkillsInput {
+            memberID: ID!
+            skills: [SkillAndLevelInput]!
+        }
+        # ------- Member Skills - Functions ------
+
+
+
+    # ---------- MUTATION - Functions --------------
 
 `

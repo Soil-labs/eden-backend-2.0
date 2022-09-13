@@ -6,7 +6,7 @@ module.exports = `
     type Project {
         _id: ID
         title: String
-        description: String
+        
 
         """ Team Members of the Project """
         teamMembers: [ProjectTeamMember]
@@ -14,9 +14,22 @@ module.exports = `
         """ Available Roles of the Project """
         roles: [ProjectRole]
 
+        
 
         serverID: [String],
         gardenServerID: String,
+    }
+
+    type ProjectContent {
+        description: String
+        emoji: String
+        color: String
+
+        links: [Link]
+
+        budget: Budget
+
+        dates: datesType
     }
 
 
@@ -26,21 +39,54 @@ module.exports = `
         """ The Role of this Member in the Project """
         role: ProjectRole
         """ Phase of the application for this member """
-        phase: PhaseEnum
+        phase: PhaseProjectTeamMemberEnum
     }
 
+    """ This is the Roles of the Project """ 
     type ProjectRole {
         _id: ID
         title: String
-        description: String
+        content: ProjectRoleContent
+
+
+        skills: [SkillAndLevel]
+
+        phase: PhaseProjectRoleEnum
     }
 
-    enum PhaseEnum {
+    type ProjectRoleContent {
+        description: String
+
+        dateRangeStart: String
+        dateRangeEnd: String
+        hoursPerWeek: Int
+        budget: Budget
+    }
+
+    type Budget {
+        token: String
+        perHour: String
+        totalBudget: String
+    }
+
+    type datesType {
+        kickOff: String
+        complition: String
+    }
+
+    """ Keep track of the phase of application 👦 for a project 👩‍🍳"""
+    enum PhaseProjectTeamMemberEnum {
         SHORTLISTED
         ENGAGED
         COMMITTED
         REJECTED
         INVITED
+    }
+
+    """ Keep track of the phase of Role 🎨 for a project 👩‍🍳"""
+    enum PhaseProjectRoleEnum {
+        OPEN
+        CLOSED
     }
 
     # ---------- Member --------------
@@ -55,7 +101,7 @@ module.exports = `
 
 
             # ------- findProjects ------
-            input FindProjects {
+            input findProjectsInput {
                 _id: [ID]
                 serverID: [String]
                 gardenServerID: String
@@ -116,11 +162,36 @@ module.exports = `
         }
 
         input updateProjectRoleInput { 
+            """ The ID of the Role """
             _id: ID!
             title: String
             description: String
         }
         # ------- Project Role - Functions ------
+
+
+
+        # ------- Project Team Member - Functions ------
+        input addProjectTeamMemberInput {
+            projectID: ID!
+            memberID: ID!
+            roleID: ID!
+        }
+        input updateProjectTeamMemberInput {
+            projectID: ID!
+            memberID: ID!
+            roleID: ID!
+
+            phase: PhaseProjectTeamMemberEnum
+        }
+        input deleteProjectTeamMemberInput {
+            projectID: ID!
+            memberID: ID!
+            roleID: ID!
+        }
+        # ------- Project Team Member - Functions ------
+
+
 
     # ---------- MUTATION - Functions --------------
 

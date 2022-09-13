@@ -2,24 +2,50 @@ module.exports = `
 
     type Mutation {
         #  ------------ Member -----------
-        addMember(fields:addMemberInput!): Member
+
+            # ------- Member General ------
+            addMember(request:addMemberInput!): Member
+            updateMember(request:updateMemberInput!): Member
+            # ------- Member General ------
+
+
+            # ------- Member Skills ------
+            addMemberSkills(request:addMemberSkillsInput!): Member
+            deleteMemberSkills(skillID: [ID!]!): Member
+            # ------- Member Skills ------
+
+
         #  ------------ Member -----------
 
         #  ------------ Project -----------
 
             # ------- Project General ------
-            addProject(fields:addProjectInput!): Project
-            updateProject(fields:updateProjectInput!): Project
+            addProject(request:addProjectInput!): Project
+            updateProject(request:updateProjectInput!): Project
             # ------- Project General ------
 
 
             # ------- Project Role ------
-            addProjectRole(fields:addProjectRoleInput!): ProjectRole
-            updateProjectRole(fields:updateProjectRoleInput!): ProjectRole
+            addProjectRole(request:addProjectRoleInput!): ProjectRole
+            updateProjectRole(request:updateProjectRoleInput!): ProjectRole
             deleteProjectRole(_id: ID!): ProjectRole
             # ------- Project Role ------
 
+
+            # ------- Project Team Member ------
+            addProjectTeamMember(request:addProjectTeamMemberInput!): ProjectTeamMember
+            updateProjectTeamMember(request:updateProjectTeamMemberInput!): ProjectTeamMember
+            deleteProjectTeamMember(request: deleteProjectTeamMemberInput ): ProjectTeamMember
+            # ------- Project Team Member ------
+
         #  ------------ Project -----------
+
+
+        #  ------------ Skills -----------
+        addSkills(request:[addSkillInput]!): [Skill]
+        approveOrRejectSkills(request:[approveOrRejectSkillInput]): [Skill]
+        #  ------------ Skills -----------
+
 
     }
 `

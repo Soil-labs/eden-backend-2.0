@@ -37,7 +37,41 @@ module.exports = `
         JUNIOR
         MID
         SENIOR
+        OTHER
     }
+
+
+    # ---------- QUERY - Functions --------------
+    """ 💡 Every Skill have the skillID and the level """
+    input SkillAndLevelInput  {
+        skillID: ID!
+        level: levelEnum!
+    }
+
+    input addSkillInput {
+        name: String
+        state: approvedSkillEnum 
+
+        subCategorySkillID: [ID],
+        categorySkillID: [ID],
+
+        relatedSkillID: [ID],
+
+        id_lightcast: String,
+    }
+
+    input approveOrRejectSkillInput {
+        _id: ID
+        state: approvedSkillEnum
+    }
+    # ---------- QUERY - Functions --------------
+
+
+    # ---------- MUTATION - Functions --------------
+
+    # ---------- MUTATION - Functions --------------
+
+
     
 
 `
