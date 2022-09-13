@@ -28,7 +28,7 @@ async function main() {
         typeDefs,
         resolvers
     })
-  
+   
   
     const subscriptionServer = new WebSocketServer(
         {server: httpServer, path: '/graphql', context: {text: "I am Context"}}
