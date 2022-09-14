@@ -44,6 +44,7 @@ module.exports = `
         #  ------------ Skills -----------
         addSkills(request:[addSkillInput]!): [Skill]
         approveOrRejectSkills(request:[approveOrRejectSkillInput]): [Skill]
+        addRelatedSkills (request:addRelatedSkillsInput): [Skill]
         #  ------------ Skills -----------
 
 

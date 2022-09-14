@@ -12,7 +12,7 @@ module.exports = `
         
         relatedSkills: [Skill],
 
-        id_lightcast: String,
+        lightcastID: String,
 
         registeredAt: String,
         
@@ -48,7 +48,34 @@ module.exports = `
         level: levelEnum!
     }
 
-    input addSkillInput {
+    input findSkillInput {
+        _id: ID
+        lightcastID: String,
+    }
+
+    input findSkillsInput {
+        _id: [ID]
+        lightcastID: [String],
+        state: approvedSkillEnum,
+    }
+
+    type FindSkillsOutput {
+        edges: [SkillEdge]
+        pageInfo: PageInfo
+    }
+    type SkillEdge {
+        cursor: String
+        node: Skill
+    }
+
+    input skillsAutocompleteInput {
+        search: String,
+    }
+    # ---------- QUERY - Functions --------------
+
+
+    # ---------- MUTATION - Functions --------------
+     input addSkillInput {
         name: String
         state: approvedSkillEnum 
 
@@ -57,18 +84,19 @@ module.exports = `
 
         relatedSkillID: [ID],
 
-        id_lightcast: String,
+        lightcastID: String,
     }
 
     input approveOrRejectSkillInput {
         _id: ID
         state: approvedSkillEnum
     }
-    # ---------- QUERY - Functions --------------
 
-
-    # ---------- MUTATION - Functions --------------
-
+    input addRelatedSkillsInput {
+        """ This is the main skill that will be connected with the related skills 🛠"""
+        skillID: ID
+        relatedSkillIDs: [ID]
+    }
     # ---------- MUTATION - Functions --------------
 
 

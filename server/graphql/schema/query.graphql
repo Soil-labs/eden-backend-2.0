@@ -3,6 +3,7 @@ module.exports = `
         
         #  ------------ Member -----------
         findMember(request:findMemberInput): Member
+        findMembers(request:findMembersInput,orderBy:OrderBy,cursor: String, limit: Int): FindMembersOutput
         #  ------------ Member -----------
 
         #  ------------ Project -----------
@@ -20,6 +21,16 @@ module.exports = `
             # ------- Project Role ------
 
         #  ------------ Project -----------
+
+
+        #  ------------ Skill -----------
+        findSkill(request:findSkillInput): Skill
+        findSkills(request:findSkillsInput,orderBy:OrderBy,cursor: String, limit: Int): FindSkillsOutput
+        waitingToAproveSkills(fields:findSkillsInput): [Skill]
+        skillsAutocomplete(fields:skillsAutocompleteInput): [Skill]
+        #  ------------ Skill -----------
+
+
     }
 
 

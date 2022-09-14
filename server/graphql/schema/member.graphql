@@ -85,6 +85,20 @@ module.exports = `
         serverID: [String]
     }
 
+    input findMembersInput {
+        _id: [ID]
+        serverID: [String]
+    }
+
+    type FindMembersOutput {
+        edges: [MemberEdge]
+        pageInfo: PageInfo
+    }
+    
+    type MemberEdge {
+        cursor: String
+        node: Member
+    }
     
     # ---------- QUERY - Functions --------------
 

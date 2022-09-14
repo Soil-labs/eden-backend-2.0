@@ -10,7 +10,7 @@ module.exports = `
         categoriesSkill: [SkillCategory],
         
          
-        id_lightcast: String,
+        lightcastID: String,
 
         emoji: String,
     }
