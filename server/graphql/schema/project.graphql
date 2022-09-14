@@ -196,6 +196,74 @@ module.exports = `
     # ---------- MUTATION - Functions --------------
 
 
+
+
+    # ------- matchProjectsToMember ------
+    input matchProjectsToMemberInput {
+        memberID: ID!
+        serverID: [ID]
+    }
+
+    type matchProjectsCursorOutput{
+        edges: [ProjectMatchEdge]
+        pageInfo: PageInfo
+    }
+    
+    type ProjectMatchEdge {
+        cursor: String
+        matchProject: MatchProjectInfo
+        matchProjectRoles: [MatchProjectRole]
+    }
+
+    type MatchProjectInfo {
+        project: Project
+        matchPercentage: Int
+        relatedSkills: [Skill]
+    }
+
+    type MatchProjectRole {
+        role: ProjectRole
+        matchPercentage: Int
+        relatedSkills: [Skill]
+    }
+    # ------- matchProjectsToMember ------
+
+
+
+    # ------- matchMembersToProject ------
+    input matchMembersToProjectInput {
+        projectID: ID!
+        serverID: [ID]
+    }
+
+    type matchMembersCursorOutput{
+        edges: [MemberMatchEdge]
+        pageInfo: PageInfo
+    }
+
+    type MemberMatchEdge {
+        cursor: String
+        member: Member
+        matchPercentage: Int
+        relatedSkills: [Skill]
+    }
+    # ------- matchMembersToProject ------
+
+    input matchMembersToProjectRoleInput {
+        projectRoleID: ID!
+        serverID: [ID]
+    }
+
+    input matchMembersToSkillsInput {
+        skillIDs: [ID]!
+        serverID: [ID]
+    }
+
+    input matchMembersToUserInput {
+        memberID: ID!
+        serverID: [ID]
+    }
+
     
 
 
