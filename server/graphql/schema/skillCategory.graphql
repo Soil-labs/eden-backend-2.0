@@ -18,6 +18,19 @@ module.exports = `
         skillCategories: [ID]
     }
 
+    input updateSkillCategoryInput {
+        _id: ID
+        name: String,
+        description: String,
+
+        skillsID: [ID], 
+        subCategoriesSkillID: [ID],
+         
+        lightcastID: ID,
+
+        emoji: String,
+    }
+
 
 
 

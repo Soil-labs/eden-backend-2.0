@@ -48,5 +48,20 @@ module.exports = `
         #  ------------ Skills -----------
 
 
+        #  ---------- Skill Category  -------
+        updateSkillCategory(fields:updateSkillCategoryInput): SkillCategory
+        #  ---------- Skill Category  -------
+
+
+        #  ---------- Skill Sub Category -------
+        updateSkillSubCategory(fields:updateSkillSubCategoryInput): SkillSubCategory
+        #  ---------- Skill Sub Category -------
+
+
+        #  ---------- Server -------
+        updateServer(fields:updateServerInput): Server
+        #  ---------- Server -------
+
+
     }
 `

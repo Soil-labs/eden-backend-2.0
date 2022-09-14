@@ -14,5 +14,12 @@ module.exports = `
         serverID: [ID]
     }
     
+    input updateServerInput {
+        _id: ID
+        name: String,
+        adminID: [String],
+        adminRolesID: [String],
+        adminCommandsID: [String], 
+    }
 
 `
