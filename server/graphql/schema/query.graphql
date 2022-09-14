@@ -30,6 +30,16 @@ module.exports = `
         skillsAutocomplete(request:skillsAutocompleteInput): [Skill]
         #  ------------ Skill -----------
 
+        #  ------------ Skill Category -----------
+        findSkillCategories(request:findSkillCategoriesInput): [SkillCategory]
+        #  ------------ Skill Category -----------
+
+
+        #  ------------ Skill Sub Category -----------
+        findSkillSubCategories(request:findSkillSubCategoriesInput): [SkillSubCategory]
+        #  ------------ Skill Sub Category -----------
+        
+
         #  ------------ Server -----------
         findServers(request:findServerInput): [Server]
         #  ------------ Server -----------

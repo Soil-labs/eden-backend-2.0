@@ -14,5 +14,11 @@ module.exports = `
         emoji: String,
     }
 
+    input findSkillCategoriesInput {
+        skillCategories: [ID]
+    }
+
+
+
 
 `
