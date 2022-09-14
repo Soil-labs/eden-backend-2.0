@@ -9,6 +9,10 @@ module.exports = `
         adminCommands: [String], 
 
     }
+
+    input findServerInput {
+        serverIDs: [ID]
+    }
     
 
 `
