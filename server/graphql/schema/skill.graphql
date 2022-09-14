@@ -53,20 +53,23 @@ module.exports = `
         lightcastID: String,
     }
 
-    input findSkillsInput {
-        _id: [ID]
-        lightcastID: [String],
-        state: approvedSkillEnum,
-    }
+        # ---------- findSkillsInput - Query -----------
+        input findSkillsInput {
+            _id: [ID]
+            lightcastID: [String],
+            state: approvedSkillEnum,
+        }
 
-    type FindSkillsOutput {
-        edges: [SkillEdge]
-        pageInfo: PageInfo
-    }
-    type SkillEdge {
-        cursor: String
-        node: Skill
-    }
+        type FindSkillsCursorOutput {
+            edges: [SkillEdge]
+            pageInfo: PageInfo
+        }
+        type SkillEdge {
+            cursor: String
+            node: Skill
+        }
+        # ---------- findSkillsInput - Query -----------
+
 
     input skillsAutocompleteInput {
         search: String,

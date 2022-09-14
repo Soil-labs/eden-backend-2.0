@@ -10,15 +10,20 @@ const skillCategoryType = require('./skillCategory.graphql');
 const skillSubCategoryType = require('./skillSubCategory.graphql');
 const projectType = require('./project.graphql');
 const generalType = require('./general.graphql');
+const matchType = require('./match.graphql');
+
+
+
 const typeDefs = gql `
-${query}
-${mutation}
-${memberType}
-${serverType}
-${skillType}
-${skillCategoryType}
-${skillSubCategoryType}
-${projectType}
-${generalType}
+    ${query}
+    ${mutation}
+    ${memberType}
+    ${serverType}
+    ${skillType}
+    ${skillCategoryType}
+    ${skillSubCategoryType}
+    ${projectType}
+    ${generalType}
+    ${matchType}
 `;
 exports.default = typeDefs;

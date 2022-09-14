@@ -107,7 +107,7 @@ module.exports = `
                 gardenServerID: String
             }
 
-            type FindProjectsOutput{
+            type FindProjectsCursorOutput{
                 edges: [ProjectEdge]
                 pageInfo: PageInfo
             }
