@@ -9,7 +9,7 @@
     "dev": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "start": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "build": "tsc",
-    "depoly": "node compiledTsFiles/server.js"
+    "depoly": "node server/server.js"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
