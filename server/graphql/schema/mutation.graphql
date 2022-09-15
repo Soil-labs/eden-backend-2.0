@@ -67,7 +67,7 @@ module.exports = `
         createRoom(fields: createRoomInput!): Room
         enterRoom(fields: enterExitRoomInput!): Room
         exitRoom(fields: enterExitRoomInput!): Room
-        # updateMemberInRoom(fields: updateMemberInRoomInput): Members
+        updateMemberInRoom(fields: updateMemberInRoomInput): Member
         #  ---------- Room -------
 
 

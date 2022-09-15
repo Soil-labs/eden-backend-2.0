@@ -4,6 +4,8 @@ module.exports = `
         #  ------------ Member -----------
         findMember(request:findMemberInput): Member
         findMembers(request:findMembersInput,orderBy:OrderBy,cursor: String, limit: Int): FindMembersCursorOutput
+
+        searchMembersAutocomplete(request:searchMembersAutocompleteInput,orderBy:OrderBy,cursor: String, limit: Int): FindMembersCursorOutput
         #  ------------ Member -----------
 
         #  ------------ Project -----------
@@ -27,7 +29,9 @@ module.exports = `
         findSkill(request:findSkillInput): Skill
         findSkills(request:findSkillsInput,orderBy:OrderBy,cursor: String, limit: Int): FindSkillsCursorOutput
         waitingToAproveSkills(request:findSkillsInput): [Skill]
-        skillsAutocomplete(request:skillsAutocompleteInput): [Skill]
+        
+        searchSkillsAutocomplete(request:skillsAutocompleteInput): [Skill]
+        
         #  ------------ Skill -----------
 
         #  ------------ Skill Category -----------
@@ -43,6 +47,11 @@ module.exports = `
         #  ------------ Server -----------
         findServers(request:findServerInput): [Server]
         #  ------------ Server -----------
+
+        #  ---------- Room -------
+        findRoom(fields: findRoomInput): Room
+        #  ---------- Room -------
+
 
 
         #  ------------ Match -----------

@@ -85,20 +85,32 @@ module.exports = `
         serverID: [String]
     }
 
-    input findMembersInput {
-        _id: [ID]
-        serverID: [String]
-    }
+        #  ------- findMembers ------
+        input findMembersInput {
+            _id: [ID]
+            serverID: [String]
+        }
 
-    type FindMembersCursorOutput {
-        edges: [MemberEdge]
-        pageInfo: PageInfo
-    }
-    
-    type MemberEdge {
-        cursor: String
-        node: Member
-    }
+        type FindMembersCursorOutput {
+            edges: [MemberEdge]
+            pageInfo: PageInfo
+        }
+        
+        type MemberEdge {
+            cursor: String
+            node: Member
+        }
+        #  ------- findMembers ------
+
+
+        #  ------- searchMembersAutocomplete ------
+        input searchMembersAutocompleteInput {
+            search: String
+            serverID: [ID]
+        }
+        #  ------- searchMembersAutocomplete ------
+
+
     
     # ---------- QUERY - Functions --------------
 
@@ -113,7 +125,7 @@ module.exports = `
         }
 
         input updateMemberInput {
-            _id: ID!
+            _id: ID
             name: String
             avatar: String
             discriminator: String
