@@ -1,49 +1,49 @@
 module.exports = `
     
-    type Room {
-        _id: ID,
-        name: String,
-        members: [Member],
-        registeredAt: String,
-    }
+    # type Room {
+    #     _id: ID,
+    #     name: String,
+    #     members: [Member],
+    #     registeredAt: String,
+    # }
 
 
-    input findRoomsInput {
-        _id: ID
-    }
+    # input findRoomsInput {
+    #     _id: ID
+    # }
 
-    input createRoomInput {
-        _id: String,
-        name: String,
-    }
+    # input createRoomInput {
+    #     _id: String,
+    #     name: String,
+    # }
 
-    # input enterRoomInput {
+    # input enterExitRoomInput {
     #     roomID: ID
     #     memberID: ID
     # }
 
-    # input updateMemberInRoomInput {
-    #     roomID: ID
-    #     memberID: ID
-    #     discordName: String
-    #     discordAvatar: String
-    #     discriminator: String
-    #     bio: String
+    # # input updateMemberInRoomInput {
+    # #     roomID: ID
+    # #     memberID: ID
+    # #     discordName: String
+    # #     discordAvatar: String
+    # #     discriminator: String
+    # #     bio: String
 
-    #     onbording: onboardingInput
+    # #     onbording: onboardingInput
 
-    #     content: contentInput
-    #     interest: String
-    #     timeZone: String
-    #     serverID: String,
-    #     skills: [skillInput_member]
-    #     memberRole: findRoleTemplateInput
+    # #     content: contentInput
+    # #     interest: String
+    # #     timeZone: String
+    # #     serverID: String,
+    # #     skills: [skillInput_member]
+    # #     memberRole: findRoleTemplateInput
         
 
-    #     hoursPerWeek: Float,
+    # #     hoursPerWeek: Float,
 
-    #     previusProjects: [previusProjectsInput],
+    # #     previusProjects: [previusProjectsInput],
 
-    #     links: [linkInput],
-    # }
+    # #     links: [linkInput],
+    # # }
 `
