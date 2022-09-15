@@ -63,12 +63,12 @@ module.exports = `
         #  ---------- Server -------
 
 
-        # #  ---------- Room -------
-        # createRoom(fields: createRoomInput!): Rooms
+        #  ---------- Room -------
+        createRoom(fields: createRoomInput!): Room
         # enterRoom(fields: enterRoomInput!): Rooms
         # exitRoom(fields: enterRoomInput!): Rooms
         # updateMemberInRoom(fields: updateMemberInRoomInput): Members
-        # #  ---------- Room -------
+        #  ---------- Room -------
 
 
     }

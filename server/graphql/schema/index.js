@@ -11,7 +11,7 @@ const skillSubCategoryType = require('./skillSubCategory.graphql');
 const projectType = require('./project.graphql');
 const generalType = require('./general.graphql');
 const matchType = require('./match.graphql');
-
+const roomType = require('./room.graphql');
 
 
 const typeDefs = gql `
@@ -25,5 +25,6 @@ const typeDefs = gql `
     ${projectType}
     ${generalType}
     ${matchType}
+    ${roomType}
 `;
 exports.default = typeDefs;
