@@ -9,19 +9,19 @@
 //     },
 //   ];
 
-  // const resolvers = {
-  //   Query: {
-  //     books: () => books,
-  //   },
-  // };
+// const resolvers = {
+//   Query: {
+//     books: () => books,
+//   },
+// };
 
-  // export default resolvers
-const { Query } = require('./query');
-const { Mutation } = require('./mutation');
+// export default resolvers
+const { Query } = require("./query");
+const { Mutation } = require("./mutation");
 
 const resolvers = {
   Query,
   Mutation,
 };
 
-export default resolvers
+export default resolvers;

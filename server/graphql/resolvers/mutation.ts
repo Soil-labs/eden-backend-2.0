@@ -1,14 +1,12 @@
-const { addMember } =  require('./mutation/memberMutation')
-
+const { addMember } = require("./mutation/memberMutation");
 
 module.exports = {
-    Mutation: {
-      // ------------ Member -----------
-      addMember
-      // ------------ Member -----------
+  Mutation: {
+    // ------------ Member -----------
+    addMember,
+    // ------------ Member -----------
 
-      // ------------ Project -----------
-      // ------------ Project -----------
-
-    }
-}
+    // ------------ Project -----------
+    // ------------ Project -----------
+  },
+};

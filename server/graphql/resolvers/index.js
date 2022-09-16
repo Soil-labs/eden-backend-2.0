@@ -16,10 +16,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //   },
 // };
 // export default resolvers
-const { Query } = require('./query');
-const { Mutation } = require('./mutation');
+const { Query } = require("./query");
+const { Mutation } = require("./mutation");
 const resolvers = {
-    Query,
-    Mutation,
+  Query,
+  Mutation,
 };
 exports.default = resolvers;

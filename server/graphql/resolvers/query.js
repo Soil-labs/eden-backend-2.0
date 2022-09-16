@@ -1,7 +1,7 @@
 "use strict";
-const { findMember } = require('./query/memberQuery');
+const { findMember } = require("./query/memberQuery");
 module.exports = {
-    Query: {
-        findMember
-    }
+  Query: {
+    findMember,
+  },
 };
