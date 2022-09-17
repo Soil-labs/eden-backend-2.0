@@ -5,7 +5,7 @@ const findMember = async (
   parent: { parent: any },
   args: { args: any; fields: any },
   context: { context: any },
-  info: { info: any }
+  info: { info: any },
 ) => {
   const { _id, serverID } = args.fields;
   console.log("Query > findMember > args.fields = ", args.fields);

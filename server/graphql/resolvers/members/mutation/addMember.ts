@@ -5,7 +5,7 @@ const addMember = async (
   parent: { parent: any },
   args: { args: any; fields: Fields },
   context: { context: any },
-  info: { info: any }
+  info: { info: any },
 ) => {
   const {
     discordName,
