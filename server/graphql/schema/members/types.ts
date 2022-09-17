@@ -94,18 +94,6 @@ export default gql`
 
   # ---------- Member --------------
 
-  # ---------- QUERY - Functions --------------
-  input findMemberInput {
-    _id: ID
-    serverID: [String]
-  }
-
-  #  ------- findMembers ------
-  input findMembersInput {
-    _id: [ID]
-    serverID: [String]
-  }
-
   type FindMembersCursorOutput {
     edges: [MemberEdge]
     pageInfo: PageInfo
@@ -118,37 +106,11 @@ export default gql`
   #  ------- findMembers ------
 
   #  ------- searchMembersAutocomplete ------
-  input searchMembersAutocompleteInput {
-    search: String
-    serverID: [ID]
-  }
-  #  ------- searchMembersAutocomplete ------
 
   # ---------- QUERY - Functions --------------
 
   # ---------- MUTATION - Functions --------------
 
-  # ------- Member General - Functions ------
-  input addMemberInput {
-    _id: ID
-    name: String
-    avatar: String
-    discriminator: String
-  }
-
-  input updateMemberInput {
-    _id: ID
-    name: String
-    avatar: String
-    discriminator: String
-  }
-  # ------- Member General - Functions ------
-
-  # ------- Member Skills - Functions ------
-  input addMemberSkillsInput {
-    memberID: ID!
-    skills: [SkillAndLevelInput]!
-  }
   # ------- Member Skills - Functions ------
 
   # ---------- MUTATION - Functions --------------

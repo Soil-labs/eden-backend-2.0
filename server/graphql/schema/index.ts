@@ -1,6 +1,6 @@
 import query from "./query";
 import mutation from "./mutation";
-import memberType from "./member";
+import members from "./members";
 import serverType from "./server";
 import skillType from "./skill";
 import skillCategoryType from "./skillCategory";
@@ -11,7 +11,7 @@ import generalType from "./general";
 const typeDefs = [
   query,
   mutation,
-  memberType,
+  ...members,
   serverType,
   skillType,
   skillCategoryType,
