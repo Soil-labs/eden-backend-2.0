@@ -1,4 +1,5 @@
 import { gql } from "apollo-server-core";
+
 export default gql`
   """
   💡 You can either use the handle or the url of the link
@@ -21,40 +22,11 @@ export default gql`
     imgCustom: String
   }
 
-  """
-  Choose the website that you want to save for this link
-  """
-  enum nameEnum {
-    GITHUB
-    LINKEDIN
-    INSTAGRAM
-    YOUTUBE
-    TWITTER
-    DEWORK
-    LENS
-    OTHER
-  }
-
   type PageInfo {
     hasNextPage: Boolean
     hasPreviousPage: Boolean
     startCursor: String
     endCursor: String
-  }
-
-  input OrderBy {
-    field: OrderField
-    direction: OrderDirection
-  }
-
-  enum OrderField {
-    PUBLISHED_AT
-    UPDATED_AT
-  }
-
-  enum OrderDirection {
-    ASC
-    DESC
   }
 
   #  ----------- Room ----------------
@@ -63,35 +35,6 @@ export default gql`
     name: String
     members: [Member]
     registeredAt: String
-  }
-
-  input findRoomInput {
-    _id: ID
-  }
-
-  input createRoomInput {
-    _id: String
-    name: String
-  }
-
-  input enterExitRoomInput {
-    roomID: ID
-    memberID: ID
-  }
-
-  input updateMemberInRoomInput {
-    roomID: ID
-    memberID: ID
-    updateMember: updateMemberInput
-  }
-  #  ----------- Room ----------------
-
-  # --------- Match -------------
-
-  # ------- matchProjectsToMember ------
-  input matchProjectsToMemberInput {
-    memberID: ID!
-    serverID: [ID]
   }
 
   type matchProjectsCursorOutput {
@@ -116,13 +59,6 @@ export default gql`
     matchPercentage: Int
     relatedSkills: [Skill]
   }
-  # ------- matchProjectsToMember ------
-
-  # ------- matchMembersToProject ------
-  input matchMembersToProjectInput {
-    projectID: ID!
-    serverID: [ID]
-  }
 
   type matchMembersCursorOutput {
     edges: [MemberMatchEdge]
@@ -135,21 +71,4 @@ export default gql`
     matchPercentage: Int
     relatedSkills: [Skill]
   }
-  # ------- matchMembersToProject ------
-
-  input matchMembersToProjectRoleInput {
-    projectRoleID: ID!
-    serverID: [ID]
-  }
-
-  input matchMembersToSkillsInput {
-    skillIDs: [ID]!
-    serverID: [ID]
-  }
-
-  input matchMembersToUserInput {
-    memberID: ID!
-    serverID: [ID]
-  }
-  # --------- Match -------------
 `;

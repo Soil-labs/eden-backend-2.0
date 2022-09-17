@@ -6,7 +6,7 @@ import skillType from "./skill";
 import skillCategoryType from "./skillCategory";
 import skillSubCategoryType from "./skillSubCategory";
 import projectType from "./project";
-import generalType from "./general";
+import common from "./common";
 
 const typeDefs = [
   query,
@@ -17,7 +17,7 @@ const typeDefs = [
   skillCategoryType,
   skillSubCategoryType,
   projectType,
-  generalType,
+  common,
 ];
 
 export default typeDefs;
