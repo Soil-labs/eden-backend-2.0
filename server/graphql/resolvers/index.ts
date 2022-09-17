@@ -16,12 +16,10 @@
 // };
 
 // export default resolvers
-const { Query } = require("./query");
-const { Mutation } = require("./mutation");
+import members from "./members";
 
 const resolvers = {
-  Query,
-  Mutation,
+  members,
 };
 
 export default resolvers;
