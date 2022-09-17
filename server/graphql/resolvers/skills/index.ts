@@ -5,9 +5,7 @@ import createSkills from "./mutation/createSkills";
 
 export default {
   // Queries
-  findSkills,
-  findSkill,
+  Query: { findSkills, findSkill },
   // Mutations
-  createSkill,
-  createSkills,
+  Mutation: { createSkill, createSkills },
 };

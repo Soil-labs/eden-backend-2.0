@@ -9,9 +9,7 @@ const createSkill_1 = __importDefault(require("./mutation/createSkill"));
 const createSkills_1 = __importDefault(require("./mutation/createSkills"));
 exports.default = {
     // Queries
-    findSkills: findSkills_1.default,
-    findSkill: findSkill_1.default,
+    Query: { findSkills: findSkills_1.default, findSkill: findSkill_1.default },
     // Mutations
-    createSkill: createSkill_1.default,
-    createSkills: createSkills_1.default,
+    Mutation: { createSkill: createSkill_1.default, createSkills: createSkills_1.default },
 };

@@ -3,7 +3,11 @@ import addMember from "./mutation/addMember";
 
 export default {
   // Queries
-  findMember,
+  Query: {
+    findMember,
+  },
   // Mutations
-  addMember,
+  Mutation: {
+    addMember,
+  },
 };

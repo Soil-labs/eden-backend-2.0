@@ -20,7 +20,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // };
 // export default resolvers
 const members_1 = __importDefault(require("./members"));
-const resolvers = {
-    members: members_1.default,
-};
+// import skills from "./skills";
+const resolvers = Object.assign({}, members_1.default);
 exports.default = resolvers;

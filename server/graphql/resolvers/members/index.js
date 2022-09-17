@@ -7,7 +7,11 @@ const findMember_1 = __importDefault(require("./query/findMember"));
 const addMember_1 = __importDefault(require("./mutation/addMember"));
 exports.default = {
     // Queries
-    findMember: findMember_1.default,
+    Query: {
+        findMember: findMember_1.default,
+    },
     // Mutations
-    addMember: addMember_1.default,
+    Mutation: {
+        addMember: addMember_1.default,
+    },
 };
