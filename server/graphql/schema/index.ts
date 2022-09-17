@@ -8,7 +8,6 @@ import projectType from "./project";
 import commonType from "./common";
 import skillCategory from "./skillCategory";
 
-
 const typeDefs = [
   query,
   mutation,
@@ -22,4 +21,3 @@ const typeDefs = [
 ];
 
 export default typeDefs;
-

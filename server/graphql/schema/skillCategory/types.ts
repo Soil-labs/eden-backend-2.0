@@ -1,6 +1,5 @@
 import { gql } from "apollo-server-core";
 export default gql`
-
   type Server {
     _id: ID
     name: String
@@ -8,5 +7,4 @@ export default gql`
     adminRoles: [String]
     adminCommands: [String]
   }
-
 `;

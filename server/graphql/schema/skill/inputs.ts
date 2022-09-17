@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-    # ---------- QUERY - Functions --------------
+  # ---------- QUERY - Functions --------------
   """
   💡 Every Skill have the skillID and the level
   """
