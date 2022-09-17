@@ -1,11 +1,12 @@
 import { ApolloError } from "apollo-server-express";
 import { Members } from "../../../../models/memberModel";
+import { Fields } from "../types";
 
 const addMember = async (
   parent: { parent: any },
   args: { args: any; fields: Fields },
   context: { context: any },
-  info: { info: any }
+  info: { info: any },
 ) => {
   const {
     discordName,

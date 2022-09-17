@@ -9,8 +9,8 @@
     "dev": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "start": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "build": "tsc",
-    "depoly": "node server/server.js",
-    "prettify": "prettier --write \"./**/*.{js,ts}\""
+    "deploy": "npm run build && node server/server.js",
+    "prettify": "prettier --write \"./**/*.ts\""
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",

@@ -97,7 +97,7 @@ async function main() {
         useUnifiedTopology: true,
         useFindAndModify: true,
         useCreateIndex: true,
-      }
+      },
     )
     .then(() => console.log("Connected to db - 2"))
     .catch((err: { err: any; message: any }) => console.log(err.message));
