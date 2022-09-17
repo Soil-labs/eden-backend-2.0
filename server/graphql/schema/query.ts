@@ -1,16 +1,7 @@
 import { gql } from "apollo-server-core";
+
 export default gql`
   type Query {
-    # ------- Project Role ------
-
-    #  ------------ Project -----------
-
-    #  ------------ Skill -----------
-
-    #  ------------ Skill Category -----------
-    findSkillCategories(request: findSkillCategoriesInput): [SkillCategory]
-    #  ------------ Skill Category -----------
-
     #  ------------ Skill Sub Category -----------
     findSkillSubCategories(request: findSkillSubCategoriesInput): [SkillSubCategory]
     #  ------------ Skill Sub Category -----------
