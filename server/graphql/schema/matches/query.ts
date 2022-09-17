@@ -9,7 +9,8 @@ export default gql`
     matchProjectsToMember(
       request: matchProjectsToMemberInput
       orderBy: OrderBy
-      cursor: String
+      after: String
+      before: String
       limit: Int
     ): matchProjectsCursorOutput
 
@@ -19,7 +20,8 @@ export default gql`
     matchMembersToProject(
       request: matchMembersToProjectInput
       orderBy: OrderBy
-      cursor: String
+      after: String
+      before: String
       limit: Int
     ): matchMembersCursorOutput
 
@@ -29,7 +31,8 @@ export default gql`
     matchMembersToProjectRole(
       request: matchMembersToProjectRoleInput
       orderBy: OrderBy
-      cursor: String
+      after: String
+      before: String
       limit: Int
     ): matchMembersCursorOutput
 
@@ -39,7 +42,8 @@ export default gql`
     matchMembersToSkills(
       request: matchMembersToSkillsInput
       orderBy: OrderBy
-      cursor: String
+      after: String
+      before: String
       limit: Int
     ): matchMembersCursorOutput
 
@@ -49,7 +53,8 @@ export default gql`
     matchMembersToUser(
       request: matchMembersToUserInput
       orderBy: OrderBy
-      cursor: String
+      after: String
+      before: String
       limit: Int
     ): matchMembersCursorOutput
     #  ------------ Match -----------
