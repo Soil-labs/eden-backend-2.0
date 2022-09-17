@@ -1,4 +1,4 @@
-interface Fields {
+export interface Fields {
   _id: string;
   discordName: string;
   discordAvatar: string;

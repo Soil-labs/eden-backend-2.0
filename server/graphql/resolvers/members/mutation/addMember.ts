@@ -1,5 +1,6 @@
 import { ApolloError } from "apollo-server-express";
 import { Members } from "../../../../models/memberModel";
+import { Fields } from "../types";
 
 const addMember = async (
   parent: { parent: any },
