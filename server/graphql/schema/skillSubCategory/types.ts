@@ -1,7 +1,6 @@
 import { gql } from "apollo-server-core";
 export default gql`
-
-type SkillSubCategory {
+  type SkillSubCategory {
     _id: ID
     name: String
     description: String
@@ -13,5 +12,4 @@ type SkillSubCategory {
 
     emoji: String
   }
-
 `;
