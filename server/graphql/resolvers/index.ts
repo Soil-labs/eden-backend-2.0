@@ -19,7 +19,7 @@
 import members from "./members";
 
 const resolvers = {
-  members,
+  ...members,
 };
 
 export default resolvers;

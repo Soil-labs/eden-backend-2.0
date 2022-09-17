@@ -1,13 +1,13 @@
 const { gql } = require("apollo-server");
-const query = require("./query.graphql");
-const mutation = require("./mutation.graphql");
-const memberType = require("./member.graphql");
-const serverType = require("./server.graphql");
-const skillType = require("./skill.graphql");
-const skillCategoryType = require("./skillCategory.graphql");
-const skillSubCategoryType = require("./skillSubCategory.graphql");
-const projectType = require("./project.graphql");
-const generalType = require("./general.graphql");
+const query = require("./query");
+const mutation = require("./mutation");
+const memberType = require("./member");
+const serverType = require("./server");
+const skillType = require("./skill");
+const skillCategoryType = require("./skillCategory");
+const skillSubCategoryType = require("./skillSubCategory");
+const projectType = require("./project");
+const generalType = require("./general");
 
 const typeDefs = gql`
   ${query}
