@@ -72,12 +72,7 @@ export default gql`
     """
     For a Specific Member find -> 1) all the Projects that match 2) the persentage of Project match 3) all the Roles that match 4) the percentage of ProjectRole
     """
-    matchProjectsToMember(
-      request: matchProjectsToMemberInput
-      orderBy: OrderBy
-      cursor: String
-      limit: Int
-    ): matchProjectsCursorOutput
+    matchProjectsToMember(request: matchProjectsToMemberInput,orderBy: OrderBy,cursor: String,limit: Int): matchProjectsCursorOutput
 
     """
     For a Specific Project find -> 1) all the Members that match 2) the persentage of match 3) related Skills
