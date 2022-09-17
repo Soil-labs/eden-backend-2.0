@@ -17,7 +17,7 @@ const typeDefs = [
   skillCategoryType,
   skillSubCategoryType,
   projectType,
-  common,
+  ...common,
 ];
 
 export default typeDefs;
