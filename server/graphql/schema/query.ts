@@ -2,10 +2,6 @@ import { gql } from "apollo-server-core";
 
 export default gql`
   type Query {
-    #  ---------- Room -------
-    findRoom(fields: findRoomInput): Room
-    #  ---------- Room -------
-
     #  ------------ Match -----------
     """
     For a Specific Member find -> 1) all the Projects that match 2) the persentage of Project match 3) all the Roles that match 4) the percentage of ProjectRole

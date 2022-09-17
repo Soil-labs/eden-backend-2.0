@@ -29,14 +29,6 @@ export default gql`
     end: String
   }
 
-  #  ----------- Room ----------------
-  type Room {
-    _id: ID
-    name: String
-    members: [Member]
-    registeredAt: String
-  }
-
   type matchProjectsCursorOutput {
     edges: [ProjectMatchEdge]
     pageInfo: PageInfo
