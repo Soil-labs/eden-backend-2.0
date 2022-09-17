@@ -81,7 +81,7 @@ export default gql`
   }
 
   input ProjectOrderBy {
-    field: ProjectOrderField
+    field: OrderableProjectField
     direction: OrderDirection
   }
 `;

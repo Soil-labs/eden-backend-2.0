@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-  enum MemberOrderField {
+  enum OrderableMemberField {
     _id
     registeredAt
     name

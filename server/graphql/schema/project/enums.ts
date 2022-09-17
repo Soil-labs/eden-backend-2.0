@@ -20,7 +20,7 @@ export default gql`
     CLOSED
   }
 
-  enum ProjectOrderField {
+  enum OrderableProjectField {
     _id
     title
   }

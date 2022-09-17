@@ -42,7 +42,7 @@ export default gql`
   }
 
   input MemberOrderBy {
-    field: MemberOrderField
+    field: OrderableMemberField
     direction: OrderDirection
   }
 `;
