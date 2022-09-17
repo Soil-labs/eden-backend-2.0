@@ -1,48 +1,7 @@
 import { gql } from "apollo-server-core";
+
 export default gql`
-  type Skill {
-    _id: ID
-    name: String
-    description: String
-
-    state: approvedSkillEnum
-
-    subCategorySkill: [SkillSubCategory]
-    categorySkills: [SkillCategory]
-
-    relatedSkills: [Skill]
-
-    lightcastID: String
-
-    registeredAt: String
-  }
-
-  enum approvedSkillEnum {
-    waiting
-    rejected
-    approved
-  }
-
-  """
-  💡 Every Skill have the information and the level
-  """
-  type SkillAndLevel {
-    info: Skill
-    level: levelEnum
-  }
-
-  """
-  🛠 This is the Level of proficiency for this specific Skill
-  """
-  enum levelEnum {
-    LEARNING
-    JUNIOR
-    MID
-    SENIOR
-    OTHER
-  }
-
-  # ---------- QUERY - Functions --------------
+    # ---------- QUERY - Functions --------------
   """
   💡 Every Skill have the skillID and the level
   """
@@ -63,14 +22,6 @@ export default gql`
     state: approvedSkillEnum
   }
 
-  type FindSkillsCursorOutput {
-    edges: [SkillEdge]
-    pageInfo: PageInfo
-  }
-  type SkillEdge {
-    cursor: String
-    node: Skill
-  }
   # ---------- findSkillsInput - Query -----------
 
   input skillsAutocompleteInput {

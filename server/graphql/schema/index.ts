@@ -1,23 +1,25 @@
 import query from "./query";
 import mutation from "./mutation";
-import members from "./members";
+import memberType from "./member";
 import serverType from "./server";
 import skillType from "./skill";
-import skillCategoryType from "./skillCategory";
 import skillSubCategoryType from "./skillSubCategory";
 import projectType from "./project";
-import common from "./common";
+import commonType from "./common";
+import skillCategory from "./skillCategory";
+
 
 const typeDefs = [
   query,
   mutation,
-  ...members,
-  serverType,
-  skillType,
-  skillCategoryType,
-  skillSubCategoryType,
-  projectType,
-  ...common,
+  ...memberType,
+  ...serverType,
+  ...skillType,
+  ...skillSubCategoryType,
+  ...projectType,
+  ...commonType,
+  ...skillCategory,
 ];
 
 export default typeDefs;
+
