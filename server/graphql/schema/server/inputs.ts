@@ -1,20 +1,15 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-  input findSkillCategoriesInput {
-    skillCategories: [ID]
+  input findServerInput {
+    serverID: [ID]
   }
 
-  input updateSkillCategoryInput {
+  input updateServerInput {
     _id: ID
     name: String
-    description: String
-
-    skillsID: [ID]
-    subCategoriesSkillID: [ID]
-
-    lightcastID: ID
-
-    emoji: String
+    adminID: [String]
+    adminRolesID: [String]
+    adminCommandsID: [String]
   }
 `;
