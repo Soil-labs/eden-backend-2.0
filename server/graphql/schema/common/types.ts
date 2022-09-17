@@ -25,8 +25,8 @@ export default gql`
   type PageInfo {
     hasNextPage: Boolean
     hasPreviousPage: Boolean
-    startCursor: String
-    endCursor: String
+    start: String
+    end: String
   }
 
   #  ----------- Room ----------------
