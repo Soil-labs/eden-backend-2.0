@@ -17,4 +17,10 @@ export default gql`
     SENIOR
     OTHER
   }
+
+  enum OrderableSkillField {
+    _id
+    name
+    registeredAt
+  }
 `;

@@ -25,50 +25,7 @@ export default gql`
   type PageInfo {
     hasNextPage: Boolean
     hasPreviousPage: Boolean
-    startCursor: String
-    endCursor: String
-  }
-
-  #  ----------- Room ----------------
-  type Room {
-    _id: ID
-    name: String
-    members: [Member]
-    registeredAt: String
-  }
-
-  type matchProjectsCursorOutput {
-    edges: [ProjectMatchEdge]
-    pageInfo: PageInfo
-  }
-
-  type ProjectMatchEdge {
-    cursor: String
-    matchProject: MatchProjectInfo
-    matchProjectRoles: [MatchProjectRole]
-  }
-
-  type MatchProjectInfo {
-    project: Project
-    matchPercentage: Int
-    relatedSkills: [Skill]
-  }
-
-  type MatchProjectRole {
-    role: ProjectRole
-    matchPercentage: Int
-    relatedSkills: [Skill]
-  }
-
-  type matchMembersCursorOutput {
-    edges: [MemberMatchEdge]
-    pageInfo: PageInfo
-  }
-
-  type MemberMatchEdge {
-    cursor: String
-    member: Member
-    matchPercentage: Int
-    relatedSkills: [Skill]
+    start: String
+    end: String
   }
 `;

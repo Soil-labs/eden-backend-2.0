@@ -19,4 +19,9 @@ export default gql`
     OPEN
     CLOSED
   }
+
+  enum OrderableProjectField {
+    _id
+    title
+  }
 `;

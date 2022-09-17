@@ -54,5 +54,9 @@ export default gql`
     skillID: ID
     relatedSkillIDs: [ID]
   }
-  # ---------- MUTATION - Functions --------------
+
+  input SkillOrderBy {
+    field: OrderableSkillField
+    direction: OrderDirection
+  }
 `;

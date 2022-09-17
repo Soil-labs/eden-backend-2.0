@@ -79,5 +79,9 @@ export default gql`
     memberID: ID!
     roleID: ID!
   }
-  # ------- Project Team Member - Functions ------
+
+  input ProjectOrderBy {
+    field: OrderableProjectField
+    direction: OrderDirection
+  }
 `;

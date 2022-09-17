@@ -2,29 +2,18 @@ import { gql } from "apollo-server-core";
 export default gql`
   """
   This is the Member of Eden 🌳
-  """ # ---------- Member --------------
+  """
   type Member {
     _id: ID
-
-    """
-    The Discord Name of the member
-    """
+    # The Discord Name of the member
     name: String
-    """
-    The picture of the user on Discord
-    """
+    # The picture of the user on Discord
     avatar: String
-
     onbording: Onboarding
-
     content: Content
-
     skills: [SkillAndLevel]
-
     projects: [ProjectOfMember]
-
     servers: [Server]
-
     registeredAt: String
   }
 
@@ -92,26 +81,8 @@ export default gql`
     showCaseAbility: String
   }
 
-  # ---------- Member --------------
-
   type FindMembersCursorOutput {
-    edges: [MemberEdge]
+    members: [Member]
     pageInfo: PageInfo
   }
-
-  type MemberEdge {
-    cursor: String
-    node: Member
-  }
-  #  ------- findMembers ------
-
-  #  ------- searchMembersAutocomplete ------
-
-  # ---------- QUERY - Functions --------------
-
-  # ---------- MUTATION - Functions --------------
-
-  # ------- Member Skills - Functions ------
-
-  # ---------- MUTATION - Functions --------------
 `;
