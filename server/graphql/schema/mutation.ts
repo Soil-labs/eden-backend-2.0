@@ -6,12 +6,6 @@ export default gql`
 
     #  ------------ Project -----------
 
-    #  ------------ Skills -----------
-    addSkills(request: [addSkillInput]!): [Skill]
-    approveOrRejectSkills(request: [approveOrRejectSkillInput]): [Skill]
-    addRelatedSkills(request: addRelatedSkillsInput): [Skill]
-    #  ------------ Skills -----------
-
     #  ---------- Skill Category  -------
     updateSkillCategory(fields: updateSkillCategoryInput): SkillCategory
     #  ---------- Skill Category  -------

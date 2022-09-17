@@ -27,11 +27,7 @@ export default gql`
   }
 
   type FindSkillsCursorOutput {
-    edges: [SkillEdge]
+    skills: [Skill]
     pageInfo: PageInfo
-  }
-  type SkillEdge {
-    cursor: String
-    node: Skill
   }
 `;

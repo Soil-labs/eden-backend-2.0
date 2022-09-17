@@ -6,18 +6,6 @@ export default gql`
     #  ------------ Project -----------
 
     #  ------------ Skill -----------
-    findSkill(request: findSkillInput): Skill
-    findSkills(
-      request: findSkillsInput
-      orderBy: OrderBy
-      cursor: String
-      limit: Int
-    ): FindSkillsCursorOutput
-    waitingToAproveSkills(request: findSkillsInput): [Skill]
-
-    searchSkillsAutocomplete(request: skillsAutocompleteInput): [Skill]
-
-    #  ------------ Skill -----------
 
     #  ------------ Skill Category -----------
     findSkillCategories(request: findSkillCategoriesInput): [SkillCategory]
