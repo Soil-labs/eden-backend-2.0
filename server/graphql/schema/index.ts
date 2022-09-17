@@ -1,24 +1,23 @@
-const { gql } = require("apollo-server");
-const query = require("./query");
-const mutation = require("./mutation");
-const memberType = require("./member");
-const serverType = require("./server");
-const skillType = require("./skill");
-const skillCategoryType = require("./skillCategory");
-const skillSubCategoryType = require("./skillSubCategory");
-const projectType = require("./project");
-const generalType = require("./general");
+import query from "./query";
+import mutation from "./mutation";
+import memberType from "./member";
+import serverType from "./server";
+import skillType from "./skill";
+import skillCategoryType from "./skillCategory";
+import skillSubCategoryType from "./skillSubCategory";
+import projectType from "./project";
+import generalType from "./general";
 
-const typeDefs = gql`
-  ${query}
-  ${mutation}
-  ${memberType}
-  ${serverType}
-  ${skillType}
-  ${skillCategoryType}
-  ${skillSubCategoryType}
-  ${projectType}
-  ${generalType}
-`;
+const typeDefs = [
+  query,
+  mutation,
+  memberType,
+  serverType,
+  skillType,
+  skillCategoryType,
+  skillSubCategoryType,
+  projectType,
+  generalType,
+];
 
 export default typeDefs;

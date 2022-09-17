@@ -1,5 +1,5 @@
 import { gql } from "apollo-server-core";
-module.exports = gql`
+export default gql`
   """
   This is the Member of Eden 🌳
   """ # ---------- Member --------------

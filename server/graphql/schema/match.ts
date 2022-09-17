@@ -1,5 +1,5 @@
 import { gql } from "apollo-server-core";
-module.exports = gql`
+export default gql`
   # # ------- matchProjectsToMember ------
 
   # type matchProjectsCursorOutput{

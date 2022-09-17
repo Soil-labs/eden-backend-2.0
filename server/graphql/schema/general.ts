@@ -1,5 +1,5 @@
 import { gql } from "apollo-server-core";
-module.exports = gql`
+export default gql`
   """
   💡 You can either use the handle or the url of the link
   """
