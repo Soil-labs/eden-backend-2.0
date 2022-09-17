@@ -83,12 +83,7 @@ export default gql`
   # ---------- Member --------------
 
   type FindProjectsCursorOutput {
-    edges: [ProjectEdge]
+    projects: [Project]
     pageInfo: PageInfo
-  }
-
-  type ProjectEdge {
-    cursor: String
-    node: Project
   }
 `;

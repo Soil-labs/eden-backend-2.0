@@ -6,8 +6,9 @@ export default gql`
 
     findProjects(
       request: findProjectsInput
-      orderBy: OrderBy
-      cursor: String
+      orderBy: ProjectOrderBy
+      after: String
+      before: String
       limit: Int
     ): FindProjectsCursorOutput
 
