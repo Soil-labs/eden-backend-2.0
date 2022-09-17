@@ -1,20 +1,7 @@
 import { gql } from "apollo-server-core";
+
 export default gql`
   type Mutation {
-    #  ------------ Member -----------
-
-    # ------- Member General ------
-    addMember(request: addMemberInput!): Member
-    updateMember(request: updateMemberInput!): Member
-    # ------- Member General ------
-
-    # ------- Member Skills ------
-    addMemberSkills(request: addMemberSkillsInput!): Member
-    deleteMemberSkills(skillID: [ID!]!): Member
-    # ------- Member Skills ------
-
-    #  ------------ Member -----------
-
     #  ------------ Project -----------
 
     # ------- Project General ------
