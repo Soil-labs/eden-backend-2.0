@@ -40,4 +40,9 @@ export default gql`
     memberID: ID!
     skills: [SkillAndLevelInput]!
   }
+
+  input MemberOrderBy {
+    field: MemberOrderField
+    direction: OrderDirection
+  }
 `;

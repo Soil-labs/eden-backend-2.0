@@ -1,25 +1,6 @@
 import { gql } from "apollo-server-core";
 export default gql`
   type Query {
-    #  ------------ Member -----------
-    findMember(request: findMemberInput): Member
-    findMembers(
-      request: findMembersInput
-      orderBy: OrderBy
-      cursor: String
-      limit: Int
-    ): FindMembersCursorOutput
-
-    searchMembersAutocomplete(
-      request: searchMembersAutocompleteInput
-      orderBy: OrderBy
-      cursor: String
-      limit: Int
-    ): FindMembersCursorOutput
-    #  ------------ Member -----------
-
-    #  ------------ Project -----------
-
     # ------- Project General ------
     findProject(request: findProjectInput): Project
     findProjects(
