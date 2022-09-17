@@ -9,19 +9,19 @@
 //     },
 //   ];
 
-  // const resolvers = {
-  //   Query: {
-  //     books: () => books,
-  //   },
-  // };
+// const resolvers = {
+//   Query: {
+//     books: () => books,
+//   },
+// };
 
-  // export default resolvers
-const { Query } = require('./query');
-const { Mutation } = require('./mutation');
+// export default resolvers
+import members from "./members";
+// import skills from "./skills";
 
 const resolvers = {
-  Query,
-  Mutation,
+  ...members,
+  // ...skills,
 };
 
-export default resolvers
+export default resolvers;
