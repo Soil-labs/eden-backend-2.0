@@ -1,7 +1,6 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-
   """
   Keep track of the phase of application 👦 for a project 👩‍🍳
   """

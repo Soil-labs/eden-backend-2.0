@@ -1,7 +1,6 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-
   type Skill {
     _id: ID
     name: String
@@ -18,8 +17,6 @@ export default gql`
 
     registeredAt: String
   }
-
- 
 
   """
   💡 Every Skill have the information and the level

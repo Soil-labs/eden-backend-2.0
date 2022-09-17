@@ -1,7 +1,6 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-  
   # ---------- Member --------------
 
   type Project {
@@ -82,7 +81,6 @@ export default gql`
     complition: String
   }
   # ---------- Member --------------
-  
 
   type FindProjectsCursorOutput {
     edges: [ProjectEdge]
