@@ -24,4 +24,9 @@ export default gql`
     ASC
     DESC
   }
+
+  enum PhaseNote {
+    OPEN
+    ARCHIVE
+  }
 `;

@@ -3,13 +3,13 @@ import { gql } from "apollo-server-core";
 export default gql`
   type Mutation {
     #  ---------- Room -------
-    createRoom(fields: createRoomInput!): Room
+    createRoom(request: createRoomInput!): Room
 
-    enterRoom(fields: enterExitRoomInput!): Room
+    enterRoom(request: enterExitRoomInput!): Room
 
-    exitRoom(fields: enterExitRoomInput!): Room
+    exitRoom(request: enterExitRoomInput!): Room
 
-    updateMemberInRoom(fields: updateMemberInRoomInput): Member
+    updateMemberInRoom(request: updateMemberInRoomInput): Member
     #  ---------- Room -------
   }
 `;

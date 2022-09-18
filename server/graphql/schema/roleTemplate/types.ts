@@ -1,15 +1,11 @@
 import { gql } from "apollo-server-core";
+
 export default gql`
-  type SkillCategory {
+  #  ----------- Room ----------------
+  type RoleTemplate {
     _id: ID
-    name: String
+    title: String
     description: String
-
     skills: [Skill]
-    skillSubCategories: [SkillCategory]
-
-    lightcastID: String
-
-    emoji: String
   }
 `;
