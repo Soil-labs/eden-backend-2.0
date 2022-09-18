@@ -1,4 +1,4 @@
-import { Members } from "../../../../models/memberModel";
+// import { Members } from "../../../../models/memberModel";
 import { ApolloError } from "apollo-server-express";
 
 const findMember = async (

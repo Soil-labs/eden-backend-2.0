@@ -6,7 +6,7 @@ const { WebSocketServer } = require("ws");
 const { useServer } = require("graphql-ws/lib/use/ws");
 const { execute, subscribe } = require("graphql");
 const { ApolloServer } = require("apollo-server-express");
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const jwt = require("jsonwebtoken");
 const { ApolloError } = require("apollo-server-express");
 

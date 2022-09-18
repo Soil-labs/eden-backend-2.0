@@ -1,8 +1,8 @@
-import members from "./members";
+// import members from "./members";
 // import skills from "./skills";
 
 const resolvers = {
-  ...members,
+  // ...members,
   // ...skills,
 };
 
