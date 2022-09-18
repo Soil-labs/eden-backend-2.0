@@ -2,9 +2,9 @@ import { gql } from "apollo-server-core";
 
 export default gql`
   enum approvedSkillEnum {
-    waiting
-    rejected
-    approved
+    WAITING
+    REJECTED
+    APPROVED
   }
 
   """

@@ -1,22 +1,28 @@
+import common from "./common";
 import member from "./member";
-import server from "./server";
+import project from "./project";
+import roleTemplate from "./roleTemplate";
 import skill from "./skill";
 import skillSubCategory from "./skillSubCategory";
-import project from "./project";
-import common from "./common";
 import skillCategory from "./skillCategory";
+import server from "./server";
 import rooms from "./rooms";
+import topic from "./topic";
+import note from "./note";
 import matches from "./matches";
 
 const typeDefs = [
   ...common,
   ...member,
   ...project,
-  ...server,
+  ...roleTemplate,
   ...skill,
-  ...rooms,
   ...skillCategory,
   ...skillSubCategory,
+  ...server,
+  ...rooms,
+  ...topic,
+  ...note,
   ...matches,
 ];
 

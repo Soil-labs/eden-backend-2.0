@@ -1,15 +1,10 @@
 import { gql } from "apollo-server-core";
 export default gql`
-  type SkillCategory {
+  type Server {
     _id: ID
     name: String
-    description: String
-
-    skills: [Skill]
-    subCategoriesSkill: [SkillSubCategory]
-
-    lightcastID: String
-
-    emoji: String
+    adminID: [String]
+    adminRoles: [String]
+    adminCommands: [String]
   }
 `;
