@@ -1,11 +1,14 @@
 import findSkills from "./query/findSkills";
 import findSkill from "./query/findSkill";
-import createSkill from "./mutation/createSkill";
+import addSkill from "./mutation/addSkill";
 import createSkills from "./mutation/createSkills";
 
 export default {
   // Queries
-  Query: { findSkills, findSkill },
+  // Query: { findSkills, findSkill },
   // Mutations
-  Mutation: { createSkill, createSkills },
+  Mutation: {
+    addSkill,
+    // createSkills
+  },
 };

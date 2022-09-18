@@ -84,10 +84,15 @@ async function main() {
 
   const PORT = process.env.PORT || 5001;
 
-  const DATABASE_MONGO =
+  let DATABASE_MONGO =
     process.env.REACT_APP_MONGO_DATABASE != undefined
       ? process.env.REACT_APP_MONGO_DATABASE
       : "graphQL_harveo";
+
+  console.log("DATABASE_MONGO = ", DATABASE_MONGO);
+  console.log("process.env.REACT_APP_MONGO_DATABASE = ", process.env.REACT_APP_MONGO_DATABASE);
+
+  DATABASE_MONGO = "new_schema_with_typescript";
 
   mongoose
     .connect(
