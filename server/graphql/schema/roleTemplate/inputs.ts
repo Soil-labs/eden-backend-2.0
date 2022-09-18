@@ -7,8 +7,8 @@ export default gql`
 
   input updateRoleTemplateInput {
     _id: ID
-    title: String,
-    description: String,
-    skillsID: [ID],
+    title: String
+    description: String
+    skillsID: [ID]
   }
 `;
