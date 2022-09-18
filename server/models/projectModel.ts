@@ -50,5 +50,5 @@ const projectSchema = mongoose.Schema({
   },
 });
 
-const Prjoects = mongoose.model("Prjoects", projectSchema);
-export { Prjoects };
+const Projects = mongoose.model("Projects", projectSchema);
+export { Projects };
