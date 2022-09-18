@@ -21,7 +21,7 @@ export default gql`
 
   # ------- Member General - Functions ------
   input addMemberInput {
-    _id: ID
+    _id: ID!
     name: String
     avatar: String
     discriminator: String

@@ -4,9 +4,9 @@ import skills from "./objectResolvers/skills";
 
 export default {
   // Object Resolvers
-  Members: {
-    skills,
-  },
+  // Members: {
+  //   skills,
+  // },
 
   // Queries
   Query: {

@@ -9,8 +9,9 @@ export default gql`
     name: String
     # The picture of the user on Discord
     avatar: String
+    discriminator: String
     onbording: Onboarding
-    content: Content
+    general: General
     skills: [SkillAndLevel]
     projects: [ProjectOfMember]
     servers: [Server]
@@ -43,25 +44,7 @@ export default gql`
   """
   This is the Content of the Member 🧑‍💼
   """
-  type Content {
-    discord: DiscordContent
-    general: GeneralContent
-  }
-
-  """
-  All the info that we collect and use on Discord
-  """
-  type DiscordContent {
-    """
-    On Discord every user has a discriminator that looks like H%1234 for example BluePandaH%231234
-    """
-    discriminator: String
-  }
-
-  """
-  All the info that we collect and use on Member
-  """
-  type GeneralContent {
+  type General {
     content: Content
     hoursPerWeek: Float
     timeZone: String
@@ -70,6 +53,15 @@ export default gql`
     """
     links: [Link]
   }
+
+  type Content {
+    bio: String,
+      interest: String,
+      mostProud: String,
+      showCaseAbility: String,
+  }
+
+
 
   """
   All the content that the user has created during signup ✍️

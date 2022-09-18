@@ -1,30 +1,37 @@
-import { ApolloError } from "apollo-server-express";
-// import { Members } from "../../../../models/memberModel";
-import { Fields } from "../types";
+import { Members } from "../../../../models/memberModel";
+import { addMemberInput } from "../types";
 
 const addMember = async (
   parent: { parent: any },
-  args: { args: any; request: Fields },
+  args: { args: any; request: addMemberInput },
   context: { context: any },
   info: { info: any },
 ) => {
   const { _id, name, avatar } = args.request;
   console.log("Mutation > addMember > args.fields = ", args.request);
 
-  // if (!_id) throw new ApolloError("_id is required, the IDs come from Discord");
+  let fields: addMemberInput = <any>{};
+  fields._id = _id;
+  fields.registeredAt = new Date();
 
-  // let fields: Fields = <any>{};
-  // fields._id = _id;
-  // fields.registeredAt = new Date();
+  if (name) fields.name = name;
+  if (avatar) fields.avatar = avatar;
 
-  // if (name) fields.name = name;
-  // if (avatar) fields.avatar = avatar;
+  console.log("fields = ", fields);
 
-  // //let membersData = await Members.findOne({ _id: fields._id })
-  // let membersData = await new Members(fields);
-  // membersData.save();
-  // return membersData;
-  return [{}];
+  let membersData = await Members.findOne({ _id: fields._id });
+
+  console.log("membersData = ", membersData);
+
+  if (!membersData) {
+    membersData = await new Members(fields);
+    console.log("membersData = ", membersData);
+    await membersData.save();
+
+    return membersData;
+  } else {
+    return membersData;
+  }
 };
 
 export default addMember;

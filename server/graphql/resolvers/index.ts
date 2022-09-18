@@ -1,9 +1,9 @@
-// import members from "./members";
-// import skills from "./skills";
+import members from "./members";
+import skills from "./skills";
 
 const resolvers = {
-  // ...members,
-  // ...skills,
+  ...skills,
+  ...members,
 };
 
 export default resolvers;
