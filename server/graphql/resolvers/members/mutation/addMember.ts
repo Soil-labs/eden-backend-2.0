@@ -1,16 +1,17 @@
 import { Members } from "../../../../models/memberModel";
+import { AddMemberInput, Member } from "../../../../generated";
 import { addMemberInput } from "../types";
 
 const addMember = async (
   parent: { parent: any },
-  args: { args: any; request: addMemberInput },
+  args: { args: any; request: AddMemberInput },
   context: { context: any },
   info: { info: any },
 ) => {
   const { _id, name, avatar } = args.request;
   console.log("Mutation > addMember > args.fields = ", args.request);
 
-  let fields: addMemberInput = <any>{};
+  let fields: Member = <any>{};
   fields._id = _id;
   fields.registeredAt = new Date();
 
