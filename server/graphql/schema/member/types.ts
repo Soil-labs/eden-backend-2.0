@@ -1,7 +1,7 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-  # scalar Date
+  scalar Date
 
   """
   This is the Member of Eden 🌳
@@ -18,7 +18,7 @@ export default gql`
     skills: [SkillAndLevel]
     projects: [ProjectOfMember]
     servers: [Server]
-    registeredAt: String
+    registeredAt: Date
   }
 
   """
