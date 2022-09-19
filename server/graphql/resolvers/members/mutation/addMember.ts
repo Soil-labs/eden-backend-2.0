@@ -14,6 +14,7 @@ const addMember = async (
   let fields: Member = <any>{};
   fields._id = _id;
   let a = new Date();
+  fields.registeredAt = a;
   // fields.registeredAt = new Date();
 
   if (name) fields.name = name;
