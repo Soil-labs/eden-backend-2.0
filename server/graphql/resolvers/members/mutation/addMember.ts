@@ -13,7 +13,7 @@ const addMember = async (
 
   let fields: Member = <any>{};
   fields._id = _id;
-  fields.registeredAt = new Date();
+  // fields.registeredAt = new Date();
 
   if (name) fields.name = name;
   if (avatar) fields.avatar = avatar;
