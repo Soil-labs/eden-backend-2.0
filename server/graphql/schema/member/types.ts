@@ -55,13 +55,11 @@ export default gql`
   }
 
   type Content {
-    bio: String,
-      interest: String,
-      mostProud: String,
-      showCaseAbility: String,
+    bio: String
+    interest: String
+    mostProud: String
+    showCaseAbility: String
   }
-
-
 
   """
   All the content that the user has created during signup ✍️

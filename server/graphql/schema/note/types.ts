@@ -4,7 +4,7 @@ export default gql`
   type Note {
     _id: ID
     title: String
-    content: String 
+    content: String
   }
 
   type findNotesCursorOutput {
