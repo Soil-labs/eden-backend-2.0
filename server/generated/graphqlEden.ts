@@ -10,6 +10,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  Date: any;
 };
 
 export type Budget = {
@@ -98,7 +99,7 @@ export type Member = {
   name?: Maybe<Scalars['String']>;
   onbording?: Maybe<Onboarding>;
   projects?: Maybe<Array<Maybe<ProjectOfMember>>>;
-  registeredAt?: Maybe<Scalars['String']>;
+  registeredAt?: Maybe<Scalars['Date']>;
   servers?: Maybe<Array<Maybe<Server>>>;
   skills?: Maybe<Array<Maybe<SkillAndLevel>>>;
 };
