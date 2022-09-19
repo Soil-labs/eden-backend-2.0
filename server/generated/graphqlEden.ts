@@ -644,7 +644,7 @@ export type Skill = {
   description?: Maybe<Scalars['String']>;
   lightcastID?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  registeredAt?: Maybe<Scalars['String']>;
+  registeredAt?: Maybe<Scalars['Date']>;
   relatedSkills?: Maybe<Array<Maybe<Skill>>>;
   state?: Maybe<ApprovedSkillEnum>;
   subCategorySkill?: Maybe<Array<Maybe<SkillSubCategory>>>;
