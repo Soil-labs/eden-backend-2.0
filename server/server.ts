@@ -89,10 +89,10 @@ async function main() {
       ? process.env.REACT_APP_MONGO_DATABASE
       : "graphQL_harveo";
 
-  console.log("DATABASE_MONGO = ", DATABASE_MONGO);
-  console.log("process.env.REACT_APP_MONGO_DATABASE = ", process.env.REACT_APP_MONGO_DATABASE);
+  // console.log("DATABASE_MONGO = ", DATABASE_MONGO);
+  // console.log("process.env.REACT_APP_MONGO_DATABASE = ", process.env.REACT_APP_MONGO_DATABASE);
 
-  DATABASE_MONGO = "new_schema_with_typescript";
+  // DATABASE_MONGO = "new_schema_with_typescript";
 
   mongoose
     .connect(

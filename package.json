@@ -9,7 +9,7 @@
     "dev": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "start": "nodemon -e ts --exec \"ts-node server/server.ts\"",
     "build": "tsc",
-    "depoly": "yarn build && node dist/server.js",
+    "depoly": "yarn build && node dist/server.ts",
     "prettify": "prettier --write \"./**/*.ts\"",
     "codegen": "graphql-codegen --config server/generated/codegen.yml"
   },
