@@ -13,6 +13,11 @@ export type Scalars = {
   Date: any;
 };
 
+export type AddSkillsToMemberInput = {
+  memberID: Scalars['ID'];
+  skills: Array<InputMaybe<SkillAndLevelInput>>;
+};
+
 export type Budget = {
   __typename?: 'Budget';
   perHour?: Maybe<Scalars['String']>;
@@ -119,18 +124,18 @@ export type MemberOrderBy = {
 export type Mutation = {
   __typename?: 'Mutation';
   addMember?: Maybe<Member>;
-  addMemberSkills?: Maybe<Member>;
   addProject?: Maybe<Project>;
   addProjectRole?: Maybe<ProjectRole>;
   addProjectTeamMember?: Maybe<ProjectTeamMember>;
   addRelatedSkills?: Maybe<Array<Maybe<Skill>>>;
   addSkill?: Maybe<Skill>;
   addSkills?: Maybe<Array<Maybe<Skill>>>;
+  addSkillsToMember?: Maybe<Member>;
   approveOrRejectSkills?: Maybe<Array<Maybe<Skill>>>;
   createRoom?: Maybe<Room>;
-  deleteMemberSkills?: Maybe<Member>;
   deleteProjectRole?: Maybe<ProjectRole>;
   deleteProjectTeamMember?: Maybe<ProjectTeamMember>;
+  deleteSkillsFromMember?: Maybe<Member>;
   enterRoom?: Maybe<Room>;
   exitRoom?: Maybe<Room>;
   updateMember?: Maybe<Member>;
@@ -149,11 +154,6 @@ export type Mutation = {
 
 export type MutationAddMemberArgs = {
   request: AddMemberInput;
-};
-
-
-export type MutationAddMemberSkillsArgs = {
-  request: AddMemberSkillsInput;
 };
 
 
@@ -187,6 +187,11 @@ export type MutationAddSkillsArgs = {
 };
 
 
+export type MutationAddSkillsToMemberArgs = {
+  request: AddSkillsToMemberInput;
+};
+
+
 export type MutationApproveOrRejectSkillsArgs = {
   request?: InputMaybe<Array<InputMaybe<ApproveOrRejectSkillInput>>>;
 };
@@ -197,11 +202,6 @@ export type MutationCreateRoomArgs = {
 };
 
 
-export type MutationDeleteMemberSkillsArgs = {
-  skillID: Array<Scalars['ID']>;
-};
-
-
 export type MutationDeleteProjectRoleArgs = {
   _id: Scalars['ID'];
 };
@@ -209,6 +209,11 @@ export type MutationDeleteProjectRoleArgs = {
 
 export type MutationDeleteProjectTeamMemberArgs = {
   request?: InputMaybe<DeleteProjectTeamMemberInput>;
+};
+
+
+export type MutationDeleteSkillsFromMemberArgs = {
+  skillID: Array<Scalars['ID']>;
 };
 
 
@@ -703,11 +708,6 @@ export type AddMemberInput = {
   avatar?: InputMaybe<Scalars['String']>;
   discriminator?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
-};
-
-export type AddMemberSkillsInput = {
-  memberID: Scalars['ID'];
-  skills: Array<InputMaybe<SkillAndLevelInput>>;
 };
 
 export type AddProjectInput = {

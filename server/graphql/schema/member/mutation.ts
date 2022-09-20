@@ -8,8 +8,8 @@ export default gql`
     updateMember(request: updateMemberInput!): Member
 
     # ------- Member Skills ------
-    addMemberSkills(request: addMemberSkillsInput!): Member
+    addSkillsToMember(request: AddSkillsToMemberInput!): Member
 
-    deleteMemberSkills(skillID: [ID!]!): Member
+    deleteSkillsFromMember(skillID: [ID!]!): Member
   }
 `;

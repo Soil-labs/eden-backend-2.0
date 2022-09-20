@@ -36,7 +36,7 @@ export default gql`
   # ------- Member General - Functions ------
 
   # ------- Member Skills - Functions ------
-  input addMemberSkillsInput {
+  input AddSkillsToMemberInput {
     memberID: ID!
     skills: [SkillAndLevelInput]!
   }

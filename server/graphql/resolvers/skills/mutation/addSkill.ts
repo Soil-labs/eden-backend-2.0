@@ -18,19 +18,9 @@ const addSkill = async (
 
   fields.registeredAt = new Date();
 
-  // let membersData = await Members.findOne({ _id: fields._id });
+  const skill = await new Skills(fields).save();
 
-  // console.log("membersData = ", membersData);
-
-  // if (!membersData) {
-  //   membersData = await new Members(fields);
-  //   console.log("membersData = ", membersData);
-  //   await membersData.save();
-
-  //   return membersData;
-  // } else {
-  //   return membersData;
-  // }
+  return skill;
 };
 
 export default addSkill;

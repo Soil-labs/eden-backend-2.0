@@ -7,7 +7,7 @@ const addMember = async (
   context: { context: any },
   info: { info: any },
 ) => {
-  const { _id, name, avatar } = args.request;
+  const { _id, name, avatar, discriminator } = args.request;
   console.log("Mutation > addMember > args.fields = ", args.request);
 
   let fields: Member = <any>{};
@@ -16,12 +16,12 @@ const addMember = async (
 
   if (name) fields.name = name;
   if (avatar) fields.avatar = avatar;
+  if (discriminator) fields.discriminator = discriminator;
 
   let membersData = await Members.findOne({ _id: fields._id });
 
   if (!membersData) {
-    membersData = await new Members(fields);
-    await membersData.save();
+    membersData = await new Members(fields).save();
 
     return membersData;
   } else {
