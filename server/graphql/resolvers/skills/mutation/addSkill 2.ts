@@ -1,5 +1,5 @@
 import { Members } from "../../../../models/memberModel";
-import { addSkillInput } from "../types";
+// import { addSkillInput } from "../types";
 
 const addSkill = async (
   parent: { parent: any },
