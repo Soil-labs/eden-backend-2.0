@@ -1,7 +1,4 @@
 import { AddSkillInput, Skill } from "../../../../generated";
-// import {Skills} from "../../../../models/skillModel";
-// import { Members } from "../../../../models/memberModel";
-// import { tika } from "../../../../models/memberModel";
 
 import { Skills } from "../../../../models/skillModel";
 
