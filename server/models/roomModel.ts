@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const roomSchema = mongoose.Schema({
   name: String,
@@ -10,4 +10,4 @@ const roomSchema = mongoose.Schema({
 });
 
 const Rooms = mongoose.model("Rooms", roomSchema);
-module.exports = { Rooms };
+export { Rooms };

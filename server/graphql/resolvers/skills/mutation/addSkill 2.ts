@@ -1,25 +1,23 @@
-import { AddSkillInput, Skill } from "../../../../generated";
-// import {Skills} from "../../../../models/skillModel";
-// import { Members } from "../../../../models/memberModel";
-// import { tika } from "../../../../models/memberModel";
-
-import { Skills } from "../../../../models/skillModel";
+import { Members } from "../../../../models/memberModel";
+import { addSkillInput } from "../types";
 
 const addSkill = async (
   parent: { parent: any },
-  args: { args: any; request: AddSkillInput },
+  args: { args: any; request: addSkillInput },
   context: { context: any },
   info: { info: any },
 ) => {
-  const { name, state } = args.request;
+  // const { _id, name, avatar } = args.request;
   console.log("Mutation > addSkill > args.fields = ", args);
 
-  let fields: Skill = <any>{};
+  // let fields: addSkillInput = <any>{};
+  // fields._id = _id;
+  // fields.registeredAt = new Date();
 
-  if (name) fields.name = name;
-  if (state) fields.state = state;
+  // if (name) fields.name = name;
+  // if (avatar) fields.avatar = avatar;
 
-  fields.registeredAt = new Date();
+  // console.log("fields = ", fields);
 
   // let membersData = await Members.findOne({ _id: fields._id });
 

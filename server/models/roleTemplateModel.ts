@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const roleTemplateSchema = mongoose.Schema({
@@ -8,4 +8,4 @@ const roleTemplateSchema = mongoose.Schema({
 });
 
 const RoleTemplate = mongoose.model("RoleTemplate", roleTemplateSchema);
-module.exports = { RoleTemplate };
+export { RoleTemplate };

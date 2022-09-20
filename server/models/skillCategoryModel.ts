@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const skillCategorySchema = mongoose.Schema({
   name: String,
@@ -18,4 +18,4 @@ const skillCategorySchema = mongoose.Schema({
 });
 
 const SkillCategory = mongoose.model("SkillCategory", skillCategorySchema);
-module.exports = { SkillCategory };
+export { SkillCategory };

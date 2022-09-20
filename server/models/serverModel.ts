@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const serverSchema = mongoose.Schema({
@@ -19,4 +19,4 @@ const serverSchema = mongoose.Schema({
 });
 
 const Servers = mongoose.model("Servers", serverSchema);
-module.exports = { Servers };
+export { Servers };

@@ -21,5 +21,5 @@ const skillSchema = mongoose.Schema({
   },
 });
 
-const Skills = mongoose.model("Skill", skillSchema);
-module.exports = { Skills };
+const Skills = mongoose.model("Skills", skillSchema);
+export { Skills };
