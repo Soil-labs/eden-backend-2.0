@@ -3,7 +3,7 @@ import { Members } from "../../../../models/memberModel";
 
 const addSkill = async (
   parent: { parent: any },
-  args: { args: any; request: addSkillInput },
+  args: { args: any },
   context: { context: any },
   info: { info: any },
 ) => {
