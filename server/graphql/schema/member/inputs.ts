@@ -41,6 +41,11 @@ export default gql`
     skills: [SkillAndLevelInput]!
   }
 
+  input DeleteSkillsFromMemberInput {
+    memberID: ID!
+    skills: [ID!]!
+  }
+
   input MemberOrderBy {
     field: OrderableMemberField
     direction: OrderDirection

@@ -34,6 +34,11 @@ export type Content = {
   showCaseAbility?: Maybe<Scalars['String']>;
 };
 
+export type DeleteSkillsFromMemberInput = {
+  memberID: Scalars['ID'];
+  skills: Array<Scalars['ID']>;
+};
+
 export type FindMembersCursorOutput = {
   __typename?: 'FindMembersCursorOutput';
   members?: Maybe<Array<Maybe<Member>>>;
@@ -213,7 +218,7 @@ export type MutationDeleteProjectTeamMemberArgs = {
 
 
 export type MutationDeleteSkillsFromMemberArgs = {
-  skillID: Array<Scalars['ID']>;
+  request?: InputMaybe<DeleteSkillsFromMemberInput>;
 };
 
 

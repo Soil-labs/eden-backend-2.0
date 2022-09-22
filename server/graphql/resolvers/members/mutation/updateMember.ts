@@ -1,16 +1,16 @@
 import { Members } from "../../../../models/memberModel";
-import { AddMemberInput, Member } from "../../../../generated";
+import { UpdateMemberInput, Member } from "../../../../generated";
 const { ApolloError } = require("apollo-server-express");
 
-const addMember = async (
+const updateMember = async (
   parent: { parent: any },
-  args: { args: any; request: AddMemberInput },
+  args: { args: any; request: UpdateMemberInput },
   context: { context: any },
   info: { info: any },
 ) => {
   try {
     const { _id, name, avatar, discriminator } = args.request;
-    console.log("Mutation > addMember > args.fields = ", args.request);
+    console.log("Mutation > updateMember > args.fields = ", args.request);
 
     if (!_id) throw new Error("_id (from Discord) is required to update member");
     if (_id.length !== 18) throw new Error("_id invalid");
@@ -30,7 +30,10 @@ const addMember = async (
 
       return membersData;
     } else {
-      return membersData;
+      const newMemebersData = await Members.findOneAndUpdate({ _id: fields._id }, fields, {
+        new: true,
+      });
+      return newMemebersData;
     }
   } catch (err: any) {
     throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
@@ -39,4 +42,4 @@ const addMember = async (
   }
 };
 
-export default addMember;
+export default updateMember;
