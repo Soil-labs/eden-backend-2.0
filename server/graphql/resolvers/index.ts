@@ -18,6 +18,4 @@ const resolvers = {
   ...skills,
 };
 
-console.log({ resolvers });
-
 export default resolvers;

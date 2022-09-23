@@ -10,6 +10,6 @@ export default gql`
     # ------- Member Skills ------
     addSkillsToMember(request: AddSkillsToMemberInput!): Member
 
-    deleteSkillsFromMember(skillID: [ID!]!): Member
+    deleteSkillsFromMember(request: DeleteSkillsFromMemberInput): Member
   }
 `;
