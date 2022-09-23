@@ -4,7 +4,7 @@ const { ApolloError } = require("apollo-server-express");
 
 const addSkillsToMember = async (
   parent: any,
-  args: { args: any; request: AddSkillsToMemberInput },
+  args: { request: AddSkillsToMemberInput },
   context: any,
   info: any,
 ) => {

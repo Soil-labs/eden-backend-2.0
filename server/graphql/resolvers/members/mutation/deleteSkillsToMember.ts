@@ -4,7 +4,7 @@ const { ApolloError } = require("apollo-server-express");
 
 const deleteSkillsFromMember = async (
   parent: any,
-  args: { args: any; request: DeleteSkillsFromMemberInput },
+  args: { request: DeleteSkillsFromMemberInput },
   context: any,
   info: any,
 ) => {

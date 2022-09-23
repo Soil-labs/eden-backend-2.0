@@ -4,7 +4,7 @@ import { Skills } from "../../../../models/skillModel";
 
 const findSkills = async (
   parent: any,
-  args: { args: any; request: FindSkillsInput; limit: number; after: string },
+  args: { request: FindSkillsInput; limit: number; after: string },
   context: any,
   info: any,
 ) => {
