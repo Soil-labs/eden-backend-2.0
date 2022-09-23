@@ -15,7 +15,7 @@ const deleteSkillsFromMember = async (
     if (!memberID) throw new Error("memberID (from Discord) is required to update member");
     if (memberID.length !== 18) throw new Error("memberID invalid");
 
-    const member = await Members.findOne({ _id: memberID });
+    const member = await Members.findOne({ discordId: memberID });
 
     if (!member) {
       throw new Error("Member not found");
