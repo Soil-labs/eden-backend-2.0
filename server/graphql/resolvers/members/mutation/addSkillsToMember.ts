@@ -3,10 +3,10 @@ import { AddSkillsToMemberInput, Member } from "../../../../generated";
 const { ApolloError } = require("apollo-server-express");
 
 const addSkillsToMember = async (
-  parent: { parent: any },
-  args: { args: any; request: AddSkillsToMemberInput },
-  context: { context: any },
-  info: { info: any },
+  parent: any,
+  args: { request: AddSkillsToMemberInput },
+  context: any,
+  info: any,
 ) => {
   try {
     const { memberID, skills } = args.request;

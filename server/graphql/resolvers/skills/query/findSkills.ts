@@ -3,10 +3,10 @@ import { FindSkillsInput, Skill, FindSkillsCursorOutput } from "../../../../gene
 import { Skills } from "../../../../models/skillModel";
 
 const findSkills = async (
-  parent: { parent: any },
-  args: { args: any; request: FindSkillsInput; limit: number; after: string },
-  context: { context: any },
-  info: { info: any },
+  parent: any,
+  args: { request: FindSkillsInput; limit: number; after: string },
+  context: any,
+  info: any,
 ) => {
   const { _id, lightcastID, state } = args.request;
   const { limit, after } = args;
