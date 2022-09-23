@@ -3,10 +3,10 @@ import { UpdateMemberInput, Member } from "../../../../generated";
 const { ApolloError } = require("apollo-server-express");
 
 const updateMember = async (
-  parent: { parent: any },
+  parent: any,
   args: { args: any; request: UpdateMemberInput },
-  context: { context: any },
-  info: { info: any },
+  context: any,
+  info: any,
 ) => {
   try {
     const { _id, name, avatar, discriminator } = args.request;

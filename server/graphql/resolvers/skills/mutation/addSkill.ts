@@ -3,10 +3,10 @@ import { AddSkillInput, Skill } from "../../../../generated";
 import { Skills } from "../../../../models/skillModel";
 
 const addSkill = async (
-  parent: { parent: any },
+  parent: any,
   args: { args: any; request: AddSkillInput },
-  context: { context: any },
-  info: { info: any },
+  context: any,
+  info: any,
 ) => {
   const { name, state } = args.request;
   console.log("Mutation > addSkill > args.fields = ", args);

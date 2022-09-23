@@ -3,10 +3,10 @@ import { DeleteSkillsFromMemberInput, Member } from "../../../../generated";
 const { ApolloError } = require("apollo-server-express");
 
 const deleteSkillsFromMember = async (
-  parent: { parent: any },
+  parent: any,
   args: { args: any; request: DeleteSkillsFromMemberInput },
-  context: { context: any },
-  info: { info: any },
+  context: any,
+  info: any,
 ) => {
   try {
     const { memberID, skills } = args.request;

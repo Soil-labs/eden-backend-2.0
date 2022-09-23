@@ -2,10 +2,10 @@
 import { ApolloError } from "apollo-server-express";
 
 const findMember = async (
-  parent: { parent: any },
+  parent: any,
   args: { args: any; request: any },
-  context: { context: any },
-  info: { info: any },
+  context: any,
+  info: any,
 ) => {
   const { _id, serverID } = args.request;
   console.log("_id = ", _id);
