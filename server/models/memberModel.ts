@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const memberSchema = mongoose.Schema({
   discordId: {
     type: String,
-    unique: true,
+    index: {
+      unique: true,
+    },
   },
 
   name: {
