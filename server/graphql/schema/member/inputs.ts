@@ -3,13 +3,13 @@ import { gql } from "apollo-server-core";
 export default gql`
   # ---------- QUERY - Functions --------------
   input findMemberInput {
-    discordId: String
+    discordID: String
     serverID: [String]
   }
 
   #  ------- findMembers ------
   input findMembersInput {
-    discordId: [String]
+    discordID: [String]
     serverID: [String]
   }
 
@@ -21,14 +21,15 @@ export default gql`
 
   # ------- Member General - Functions ------
   input addMemberInput {
-    discordId: String!
+    discordID: String
     name: String
     avatar: String
     discriminator: String
   }
 
   input updateMemberInput {
-    discordId: String
+    _id: String
+    discordID: String
     name: String
     avatar: String
     discriminator: String

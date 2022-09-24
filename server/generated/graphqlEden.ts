@@ -104,7 +104,7 @@ export type Member = {
   __typename?: 'Member';
   _id?: Maybe<Scalars['ID']>;
   avatar?: Maybe<Scalars['String']>;
-  discordId?: Maybe<Scalars['String']>;
+  discordID?: Maybe<Scalars['String']>;
   discriminator?: Maybe<Scalars['String']>;
   general?: Maybe<General>;
   name?: Maybe<Scalars['String']>;
@@ -711,7 +711,7 @@ export type Topic = {
 
 export type AddMemberInput = {
   avatar?: InputMaybe<Scalars['String']>;
-  discordId: Scalars['String'];
+  discordID?: InputMaybe<Scalars['String']>;
   discriminator?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
 };
@@ -780,12 +780,12 @@ export type EnterExitRoomInput = {
 };
 
 export type FindMemberInput = {
-  discordId?: InputMaybe<Scalars['String']>;
+  discordID?: InputMaybe<Scalars['String']>;
   serverID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type FindMembersInput = {
-  discordId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  discordID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   serverID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
@@ -926,8 +926,9 @@ export type UpdateMemberInRoomInput = {
 };
 
 export type UpdateMemberInput = {
+  _id?: InputMaybe<Scalars['String']>;
   avatar?: InputMaybe<Scalars['String']>;
-  discordId?: InputMaybe<Scalars['String']>;
+  discordID?: InputMaybe<Scalars['String']>;
   discriminator?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
 };
