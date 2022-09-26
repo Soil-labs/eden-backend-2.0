@@ -16,7 +16,7 @@ const findMembers = async (
   } catch (error) {
     console.error(error);
   }
-  //   console.log("discordId = ", discordId);
+  //   console.log("discordID = ", discordID);
   // console.log("Query > findMember > args.fields = ", args.fields);
   // if (!_id) {
   //   throw new ApolloError("No id provided");

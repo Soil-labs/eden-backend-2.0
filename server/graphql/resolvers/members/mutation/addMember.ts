@@ -9,21 +9,21 @@ const addMember = async (
   info: any,
 ) => {
   try {
-    const { discordId, name, avatar, discriminator } = args.request;
+    const { discordID, name, avatar, discriminator } = args.request;
     console.log("Mutation > addMember > args.fields = ", args.request);
 
-    if (!discordId) throw new Error("discordId (from Discord) is required to add member");
-    if (discordId.length !== 18) throw new Error("discordId invalid");
+    if (discordID?.length !== 18) throw new Error("discordID invalid");
 
     let fields: Member = {};
-    fields.discordId = discordId;
+    fields.discordID = discordID;
     fields.registeredAt = new Date();
 
     if (name) fields.name = name;
     if (avatar) fields.avatar = avatar;
     if (discriminator) fields.discriminator = discriminator;
+    if (discordID) fields.discordID = discordID;
 
-    let membersData = await Members.findOne({ discordId: fields.discordId });
+    let membersData = await Members.findOne({ discordID: fields.discordID });
 
     if (!membersData) {
       membersData = await new Members(fields).save();

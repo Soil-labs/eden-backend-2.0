@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const memberSchema = mongoose.Schema({
-  discordId: {
+  discordID: {
     type: String,
     index: {
       unique: true,

@@ -12,8 +12,7 @@ const addSkillsToMember = async (
     const { memberID, skills } = args.request;
     console.log("Mutation > addSkillsToMember > args.fields = ", args.request);
 
-    if (!memberID) throw new Error("memberID (from Discord) is required to update member");
-    if (memberID.length !== 18) throw new Error("memberID invalid");
+    if (!memberID) throw new Error("memberID (from mongoDB _id) is required to update member");
 
     const member = await Members.findOne({ _id: memberID });
 
