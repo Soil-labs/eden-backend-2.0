@@ -8,24 +8,15 @@ const findMember = async (
   context: { context: any },
   info: { info: any },
 ) => {
-  const { _id, serverID } = args.request;
+  const { _id } = args.request;
   console.log("Query > findMember > args.fields = ", args);
   if (!_id) {
     throw new ApolloError("No id provided");
   }
-  let queryServerID: any = [];
-  if (serverID) {
-    serverID.forEach(ID => {
-      queryServerID.push({ serverID: ID });
-    });
-  }
+
+ 
   try {
     let memberData = await Members.findOne({ _id: _id });
-    if (queryServerID.length > 0) {
-      memberData = await Members.findOne({ $and: [{ _id: _id }, { $or: queryServerID }] });
-    } else {
-      memberData = await Members.findOne({ _id: _id });
-    }
     console.log("memberData = ", memberData);
     return memberData;
   } catch (err: any) {

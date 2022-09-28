@@ -3,13 +3,12 @@ import { gql } from "apollo-server-core";
 export default gql`
   # ---------- QUERY - Functions --------------
   input findMemberInput {
-    _id: ID
-    serverID: [String]
+    _id: ID!
   }
 
   #  ------- findMembers ------
   input findMembersInput {
-    _id: [ID]
+    _id: [ID!]
     serverID: [String]
   }
 

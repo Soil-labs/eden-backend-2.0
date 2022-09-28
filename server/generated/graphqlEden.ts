@@ -779,8 +779,7 @@ export type EnterExitRoomInput = {
 };
 
 export type FindMemberInput = {
-  _id?: InputMaybe<Scalars['ID']>;
-  serverID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  _id: Scalars['ID'];
 };
 
 export type FindMembersInput = {
