@@ -7,6 +7,7 @@ const { useServer } = require("graphql-ws/lib/use/ws");
 const { execute, subscribe } = require("graphql");
 const { ApolloServer } = require("apollo-server-express");
 import mongoose from "mongoose";
+import authRoutes from "./auth";
 const jwt = require("jsonwebtoken");
 const { ApolloError } = require("apollo-server-express");
 
@@ -125,6 +126,9 @@ async function main() {
   // // console.log(`apolloServer is ready at http://localhost:${PORT}`);
   // // console.log("DATABASE_MONGO = ", DATABASE_MONGO);
   // });
+
+  app.use("/auth", authRoutes());
+
   httpServer.listen(PORT, () => {
     console.log(`apolloServer is ready at http://localhost:${PORT}/graphql`);
   });
