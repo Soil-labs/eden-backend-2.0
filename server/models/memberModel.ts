@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 
 const memberSchema = mongoose.Schema({
-  _id: {
+  discordID: {
     type: String,
-    unique: true,
+    index: {
+      unique: true,
+    },
   },
 
   name: {

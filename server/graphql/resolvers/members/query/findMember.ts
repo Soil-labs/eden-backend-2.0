@@ -1,14 +1,9 @@
 // import { Members } from "../../../../models/memberModel";
 import { ApolloError } from "apollo-server-express";
 
-const findMember = async (
-  parent: { parent: any },
-  args: { args: any; request: any },
-  context: { context: any },
-  info: { info: any },
-) => {
-  const { _id, serverID } = args.request;
-  console.log("_id = ", _id);
+const findMember = async (parent: any, args: { request: any }, context: any, info: any) => {
+  const { discordID, serverID } = args.request;
+  console.log("discordID = ", discordID);
   // console.log("Query > findMember > args.fields = ", args.fields);
   // if (!_id) {
   //   throw new ApolloError("No id provided");
