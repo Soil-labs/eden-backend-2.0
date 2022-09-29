@@ -781,7 +781,7 @@ export type EnterExitRoomInput = {
 
 export type FindMemberInput = {
   discordID?: InputMaybe<Scalars['String']>;
-  serverID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 export type FindMembersInput = {
