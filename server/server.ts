@@ -9,7 +9,7 @@ const { ApolloServer } = require("apollo-server-express");
 import mongoose from "mongoose";
 import authRoutes from "./auth";
 const jwt = require("jsonwebtoken");
-const { ApolloError } = require("apollo-server-express");
+import cors from "cors";
 
 require("dotenv").config();
 
@@ -127,6 +127,7 @@ async function main() {
   // // console.log("DATABASE_MONGO = ", DATABASE_MONGO);
   // });
 
+  app.use(cors());
   app.use("/auth", authRoutes());
 
   httpServer.listen(PORT, () => {
