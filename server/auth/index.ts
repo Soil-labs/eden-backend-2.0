@@ -5,7 +5,7 @@ import login from "./login";
 const authRoutes = () => {
   const router = Router();
 
-  router.get("/login", login);
+  router.post("/login", login);
   router.get("/init", init);
 
   return router;

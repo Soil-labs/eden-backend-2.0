@@ -1,6 +1,45 @@
 import { Request, Response } from "express";
+import axios from "axios";
 
-const login = (req: Request, res: Response) => {
-  res.send("Login");
+const login = async ({ body }: Request, res: Response) => {
+  try {
+    const { code, redirect_uri } = body;
+
+    if (!code) throw new Error("Invalid Code supplied");
+
+    const params = new URLSearchParams();
+    params.append("client_id", process.env.DISCORD_CLIENT_ID?.toString() || "");
+    params.append("client_secret", process.env.DISCORD_CLIENT_SECRET?.toString() || "");
+    params.append("grant_type", "authorization_code");
+    params.append("code", code as string);
+    params.append("scope", "identify");
+    params.append("redirect_uri", redirect_uri);
+
+    const response = await axios
+      .post(`https://discord.com/api/oauth2/token`, params.toString())
+      .catch(err => {
+        console.error(err);
+        throw new Error("Failed to get token");
+      });
+
+    let { token_type, access_token } = response?.data;
+
+    const authResponse = await axios
+      .get(`https://discord.com/api/oauth2/@me`, {
+        headers: {
+          authorization: `${token_type} ${access_token}`,
+        },
+      })
+      .catch(err => {
+        console.error(err);
+        throw new Error("Failed to get user");
+      });
+
+    let { user } = authResponse?.data;
+
+    res.send({ user });
+  } catch (error: any) {
+    res.status(500).send({ error: error.message });
+  }
 };
 export default login;
