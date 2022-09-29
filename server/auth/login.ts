@@ -1,43 +1,37 @@
 import { Request, Response } from "express";
-import axios from "axios";
+import jwt from "jsonwebtoken";
+import { Members } from "../models/memberModel";
+import fetchDiscordUser from "./utils/fetchDiscordUser";
 
 const login = async ({ body }: Request, res: Response) => {
   try {
     const { code, redirect_uri } = body;
 
-    if (!code) throw new Error("Invalid Code supplied");
+    // get user from discord
+    const user = await fetchDiscordUser(code, redirect_uri);
 
-    const params = new URLSearchParams();
-    params.append("client_id", process.env.DISCORD_CLIENT_ID?.toString() || "");
-    params.append("client_secret", process.env.DISCORD_CLIENT_SECRET?.toString() || "");
-    params.append("grant_type", "authorization_code");
-    params.append("code", code as string);
-    params.append("scope", "identify");
-    params.append("redirect_uri", redirect_uri);
+    // Find if user is in database
+    const dbUser = await Members.findOne({ discordId: user.id });
+    console.log({ dbUser });
 
-    const response = await axios
-      .post(`https://discord.com/api/oauth2/token`, params.toString())
-      .catch(err => {
-        console.error(err);
-        throw new Error("Failed to get token");
+    // if user is not in database, save user to database
+    if (!dbUser) {
+      await Members.create({
+        discordID: user.id,
+        name: user.name,
+        avatar: user.avatar,
+        discriminator: user.discriminator,
+        registeredAt: new Date(),
       });
+    }
 
-    let { token_type, access_token } = response?.data;
+    // Generate auth token
+    const token = jwt.sign({ _id: dbUser._id, discordID: user.id }, process.env.JWT_SECRET || "", {
+      expiresIn: "7d",
+    });
 
-    const authResponse = await axios
-      .get(`https://discord.com/api/oauth2/@me`, {
-        headers: {
-          authorization: `${token_type} ${access_token}`,
-        },
-      })
-      .catch(err => {
-        console.error(err);
-        throw new Error("Failed to get user");
-      });
-
-    let { user } = authResponse?.data;
-
-    res.send({ user });
+    // Return user and token
+    res.json({ discord_user: user, eden_user: dbUser, token });
   } catch (error: any) {
     res.status(500).send({ error: error.message });
   }
