@@ -3,34 +3,44 @@ import { UpdateMemberInput, Member } from "../../../../generated";
 const { ApolloError } = require("apollo-server-express");
 
 const updateMember = async (
-  parent: { parent: any },
-  args: { args: any; request: UpdateMemberInput },
-  context: { context: any },
-  info: { info: any },
+  parent: any,
+  args: { request: UpdateMemberInput },
+  context: any,
+  info: any,
 ) => {
   try {
-    const { _id, name, avatar, discriminator } = args.request;
+    const { _id, discordID, name, avatar, discriminator } = args.request;
     console.log("Mutation > updateMember > args.fields = ", args.request);
 
-    if (!_id) throw new Error("_id (from Discord) is required to update member");
-    if (_id.length !== 18) throw new Error("_id invalid");
+    if (discordID?.length !== 18) throw new Error("discordID invalid");
+
+    if (_id && discordID) throw new Error("Only one of _id or discordID can be used");
 
     let fields: Member = <any>{};
-    fields._id = _id;
+    fields.discordID = discordID;
     fields.registeredAt = new Date();
 
     if (name) fields.name = name;
     if (avatar) fields.avatar = avatar;
     if (discriminator) fields.discriminator = discriminator;
 
-    let membersData = await Members.findOne({ _id: fields._id });
+    let request;
+    if (_id) {
+      request = { _id };
+    } else if (discordID) {
+      request = { discordID };
+    } else {
+      throw new Error("No _id or discordID provided");
+    }
+
+    let membersData = await Members.findOne(request);
 
     if (!membersData) {
       membersData = await new Members(fields).save();
 
       return membersData;
     } else {
-      const newMemebersData = await Members.findOneAndUpdate({ _id: fields._id }, fields, {
+      const newMemebersData = await Members.findOneAndUpdate(request, fields, {
         new: true,
       });
       return newMemebersData;

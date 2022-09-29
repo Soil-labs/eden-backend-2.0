@@ -8,6 +8,7 @@ export default gql`
   """
   type Member {
     _id: ID
+    discordID: String
     # The Discord Name of the member
     name: String
     # The picture of the user on Discord
