@@ -1,5 +1,5 @@
 import { FindSkillInput, Skill } from "../../../../generated";
-
+import { ApolloError } from "apollo-server-express";
 import { Skills } from "../../../../models/skillModel";
 
 const findSkill = async (
@@ -7,16 +7,27 @@ const findSkill = async (
   args: { request: FindSkillInput },
   context: any,
   info: any,
-) => {
+): Promise<Skill> => {
   const { _id, lightcastID } = args.request;
-  console.log("Mutation > findSkill > args.fields = ", args);
+  console.log("Query > findSkill > args = ", args.request);
+
+  let searchQuery = {};
 
   if (_id) {
-    const skill = await Skills.findOne({ _id: _id });
-    return skill;
+    searchQuery = { _id: _id };
+  } else if (lightcastID) {
+    searchQuery = { lightcastID: lightcastID };
   } else {
-    const skill = await Skills.findOne({ lightcastID: lightcastID });
+    throw new ApolloError("You need to specify the id of the skill");
+  }
+
+  try {
+    const skill = await Skills.findOne(searchQuery);
     return skill;
+  } catch (err: any) {
+    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
+      component: "tmemberQuery > findSkill",
+    });
   }
 };
 
