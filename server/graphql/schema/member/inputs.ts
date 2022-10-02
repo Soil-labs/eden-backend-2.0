@@ -3,8 +3,8 @@ import { gql } from "apollo-server-core";
 export default gql`
   # ---------- QUERY - Functions --------------
   input findMemberInput {
-    discordID: String!
-    #serverID: [String]
+    discordID: String
+    id: ID
   }
 
   #  ------- findMembers ------
