@@ -1,49 +1,136 @@
-import { FindSkillsInput, Skill, FindSkillsCursorOutput } from "../../../../generated";
-
+import { FindSkillsInput, FindSkillsCursorOutput, SkillOrderBy } from "../../../../generated";
 import { Skills } from "../../../../models/skillModel";
+import { ApolloError } from "apollo-server-express";
+import mongoose from "mongoose";
+
+const DEFAULT_PAGE_LIMIT = 20;
+interface SearchOptions {
+  [key: string]: any;
+}
 
 const findSkills = async (
   parent: any,
-  args: { request: FindSkillsInput; limit: number; after: string },
+  args: {
+    request: FindSkillsInput;
+    orderBy: SkillOrderBy;
+    limit: number;
+    after: string;
+    before: string;
+  },
   context: any,
   info: any,
-) => {
-  const { _id, lightcastID, state } = args.request;
-  const { limit, after } = args;
-  console.log("Mutation > findSkills > args.fields = ", args);
+): Promise<FindSkillsCursorOutput> => {
+  const {
+    request: { _id, lightcastID, state },
+    limit,
+    orderBy,
+    after,
+    before,
+  } = args;
 
-  let fields: Skill = <any>{};
+  console.log("Query > findSkills > args.fields = ", args);
 
-  let searchQuery: any = {};
-  let searchQuery_and: any = [];
+  let options: SearchOptions = {
+    limit: limit || DEFAULT_PAGE_LIMIT,
+  };
 
-  if (state) searchQuery_and = [{ state: state }];
-  else searchQuery_and = [{ state: "APPROVED" }];
-
-  if (_id) {
-    searchQuery_and.push({ _id: _id });
-  } else if (lightcastID) {
-    searchQuery_and.push({ lightcastID: lightcastID });
+  if (orderBy) {
+    const sortField: any = orderBy.field;
+    const sort = { [sortField]: orderBy.direction == "ASC" ? 1 : -1 };
+    options.field = orderBy.field || "_id";
+    options.sort = sort;
+    options.direction = orderBy.direction == "ASC" ? 1 : -1;
+  } else {
+    options.field = "_id";
+    options.sort = {
+      _id: 1,
+    };
+    options.direction = 1;
   }
 
-  searchQuery = {
-    $and: searchQuery_and,
-  };
+  let than_key_next = options.direction === 1 ? "$gt" : "$lt";
+  let than_key_prev = options.direction === -1 ? "$gt" : "$lt";
 
-  let skillDataAll = await Skills.find(searchQuery);
+  if (after) {
+    let after_key: any = after;
+    if (options.field === "_id") after_key = mongoose.Types.ObjectId(String(after));
+    options.filters = {
+      [options.field]: {
+        [than_key_next]: after_key,
+      },
+    };
+  } else if (before) {
+    let before_key: any = before;
+    if (options.field === "_id") before_key = mongoose.Types.ObjectId(String(before));
+    options.filters = {
+      [options.field]: {
+        [than_key_prev]: before_key,
+      },
+    };
+    options.sort[options.field] = -1 * options.sort[options.field];
+  }
 
-  let skillData: FindSkillsCursorOutput;
+  let searchQuery = {};
 
-  skillData = {
-    pageInfo: {
-      hasNextPage: true,
-      hasPreviousPage: false,
-      start: "0",
-    },
-    skills: skillDataAll.slice(0, limit),
-  };
+  if (_id) {
+    searchQuery = {
+      $and: [{ _id: _id }, { state: state ? state : "approved" }],
+    };
+  } else if (lightcastID) {
+    searchQuery = {
+      $and: [{ lightcastID: lightcastID }, { state: state ? state : "approved" }],
+    };
+  } else {
+    searchQuery = {
+      $and: [{ state: state ? state : "approved" }],
+    };
+  }
 
-  return skillData;
+  try {
+    let data = await Skills.find({ ...searchQuery, ...options.filters })
+      .sort(options.sort)
+      .limit(options.limit);
+
+    if (before) data.reverse();
+
+    let hasNextPage =
+      data.length > 0
+        ? !!(await Skills.findOne({
+            ...searchQuery,
+            [options.field]: {
+              [than_key_next]: data[data.length - 1][options.field],
+            },
+          }))
+        : !!before;
+
+    let hasPrevPage =
+      data.length > 0
+        ? !!(await Skills.findOne({
+            ...searchQuery,
+            [options.field]: {
+              [than_key_prev]: data[0][options.field],
+            },
+          }))
+        : !!after;
+
+    let pageInfo = {
+      hasNextPage,
+      hasPrevPage,
+      start: data.length > 0 ? data[0][options.field] : after,
+      end: data.length > 0 ? data[data.length - 1][options.field] : before,
+    };
+
+    console.log(`skillsData: ${data} || pageInfo: ${JSON.stringify(pageInfo)}`);
+
+    return {
+      skills: data,
+      pageInfo,
+    };
+  } catch (err: any) {
+    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
+      component: "tmemberQuery > findSkills",
+    });
+  }
 };
 
 export default findSkills;
