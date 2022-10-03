@@ -33,6 +33,7 @@ export default gql`
   # ---------- MUTATION - Functions --------------
   input addSkillInput {
     name: String
+    description: String
     state: approvedSkillEnum
 
     subCategorySkillID: [ID]
