@@ -830,7 +830,8 @@ export type FindServerInput = {
 };
 
 export type FindSkillCategoriesInput = {
-  skillCategories?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type FindSkillInput = {
@@ -839,7 +840,8 @@ export type FindSkillInput = {
 };
 
 export type FindSkillSubCategoriesInput = {
-  skillSubCategories?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type FindSkillsInput = {
