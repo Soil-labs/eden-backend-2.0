@@ -739,6 +739,7 @@ export type AddRelatedSkillsInput = {
 
 export type AddSkillInput = {
   categorySkillID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  description?: InputMaybe<Scalars['String']>;
   lightcastID?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   relatedSkillID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
