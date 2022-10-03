@@ -11,7 +11,7 @@ const skillSchema = mongoose.Schema({
   skillCategoriesID: [mongoose.Schema.Types.ObjectId],
   skillSubCategoriesID: [mongoose.Schema.Types.ObjectId],
 
-  relatedSkillsID: [mongoose.Schema.Types.ObjectId],
+  relatedSkills: [mongoose.Schema.Types.ObjectId],
 
   lightcastID: String,
 

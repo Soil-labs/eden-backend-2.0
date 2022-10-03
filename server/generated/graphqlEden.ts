@@ -133,7 +133,7 @@ export type Mutation = {
   addProject?: Maybe<Project>;
   addProjectRole?: Maybe<ProjectRole>;
   addProjectTeamMember?: Maybe<ProjectTeamMember>;
-  addRelatedSkills?: Maybe<Array<Maybe<Skill>>>;
+  addRelatedSkills?: Maybe<Skill>;
   addSkill?: Maybe<Skill>;
   addSkills?: Maybe<Array<Maybe<Skill>>>;
   addSkillsToMember?: Maybe<Member>;
