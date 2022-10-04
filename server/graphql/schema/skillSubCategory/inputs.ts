@@ -10,7 +10,7 @@ export default gql`
     _id: ID
     name: String
     description: String
-
+    
     skillsID: [ID]
     categoriesSkillID: [ID]
 
