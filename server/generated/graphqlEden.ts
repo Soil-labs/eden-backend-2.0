@@ -681,7 +681,7 @@ export type SkillCategory = {
   emoji?: Maybe<Scalars['String']>;
   lightcastID?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  skillSubCategories?: Maybe<Array<Maybe<SkillCategory>>>;
+  skillSubCategories?: Maybe<Array<Maybe<SkillSubCategory>>>;
   skills?: Maybe<Array<Maybe<Skill>>>;
 };
 

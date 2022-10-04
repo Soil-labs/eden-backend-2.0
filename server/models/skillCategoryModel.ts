@@ -4,8 +4,8 @@ const skillCategorySchema = mongoose.Schema({
   name: String,
   description: String,
 
-  skillsID: [mongoose.Schema.Types.ObjectId],
-  skillSubCategoriesID: [mongoose.Schema.Types.ObjectId],
+  skills: [mongoose.Schema.Types.ObjectId],
+  skillSubCategories: [mongoose.Schema.Types.ObjectId],
 
   lightcastID: String,
 
