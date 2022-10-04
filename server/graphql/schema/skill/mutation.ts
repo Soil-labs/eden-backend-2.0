@@ -8,7 +8,7 @@ export default gql`
 
     approveOrRejectSkills(request: [approveOrRejectSkillInput]): [Skill]
 
-    addRelatedSkills(request: addRelatedSkillsInput): [Skill]
+    addRelatedSkills(request: addRelatedSkillsInput): Skill
     #  ------------ Skills -----------
   }
 `;
