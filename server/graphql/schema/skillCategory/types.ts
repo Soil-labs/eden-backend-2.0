@@ -6,7 +6,7 @@ export default gql`
     description: String
 
     skills: [Skill]
-    skillSubCategories: [SkillCategory]
+    skillSubCategories: [SkillSubCategory] 
 
     lightcastID: String
 

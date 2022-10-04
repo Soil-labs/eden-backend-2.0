@@ -13,7 +13,7 @@ const findSkillCategories = async (
 ): Promise<SkillCategoryOutput[]> => {
   const { _id, lightcastID } = args.request;
 
-  console.log("Query > findSkillCategory > args.request = ", args.request);
+  console.log("Query > findSkillCategories > args.request = ", args.request);
 
   let searchQuery = {};
 
@@ -26,7 +26,7 @@ const findSkillCategories = async (
   }
 
   try {
-    let skillCategoryData = await SkillCategory.findOne(searchQuery);
+    let skillCategoryData = await SkillCategory.find(searchQuery);
 
     return skillCategoryData;
   } catch (err: any) {
