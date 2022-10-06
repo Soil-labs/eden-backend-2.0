@@ -29,8 +29,8 @@ const findSkillSubCategories = async (
     skillSubCategoryData = await SkillSubCategory.find(searchQuery);
     return skillSubCategoryData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tmemberQuery > findSkillSubCategories",
+    throw new ApolloError(err.message, err.extensions?.code || "findSkillSubCategories", {
+      component: "SkillSubQuery > findSkillSubCategories",
     });
   }
 };

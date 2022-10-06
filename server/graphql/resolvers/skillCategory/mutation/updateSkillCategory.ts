@@ -59,8 +59,8 @@ const updateSkillCategory = async (
     console.log("skillcategory data", skillCategoryData)
     return skillCategoryData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tSkillCategoryMutation > updateSkillCategory",
+    throw new ApolloError(err.message, err.extensions?.code || "updateSkillCategory", {
+      component: "SkillCategoryMutation > updateSkillCategory",
     });
   }
 };

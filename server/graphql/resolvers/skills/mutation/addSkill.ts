@@ -8,24 +8,30 @@ const addSkill = async (parent: any, args: { request: AddSkillInput }, context: 
 
   let fields: Skill = <any>{};
 
-  if (!name ){
-      throw new ApolloError("The skill name is required");
+  if (!name) {
+    throw new ApolloError("The skill name is required");
   }
 
-  if ( lightcastID ) fields.lightcastID = lightcastID;
-  if ( description ) fields.description = description;
-  if (!state){
+  if (lightcastID) fields.lightcastID = lightcastID;
+  if (description) fields.description = description;
+  if (!state) {
     fields.state = ApprovedSkillEnum.Waiting;
-  } else{
+  } else {
     fields.state = state;
   }
 
   fields.name = name;
   fields.registeredAt = new Date();
 
-  const skill = await new Skills(fields).save();
+  try {
+    const skill = await new Skills(fields).save();
 
-  return skill;
+    return skill;
+  } catch (err: any) {
+    throw new ApolloError(err.message, err.extensions?.code || "addSkill", {
+      component: "SkillsMutation > addSkill",
+    });
+  }
 };
 
 export default addSkill;

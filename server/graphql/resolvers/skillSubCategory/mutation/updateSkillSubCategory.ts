@@ -55,8 +55,8 @@ import {
    
       return skillSubCategoryData;
     } catch (err: any) {
-      throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-        component: "tmemberSkillSubCategory > updateSkillSubCategory",
+      throw new ApolloError(err.message, err.extensions?.code || "updateSkillSubCategory", {
+        component: "SkillSubCategoryMutation > updateSkillSubCategory",
       });
     }
   };

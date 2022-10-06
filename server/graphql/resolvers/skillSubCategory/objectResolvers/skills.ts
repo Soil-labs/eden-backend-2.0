@@ -15,7 +15,7 @@ const skills = async (
 
     return skillData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_SEARCH_ERROR", {
+    throw new ApolloError(err.message, err.extensions?.code || "skills", {
       component: "skillSubCategoryResolver > skills",
       user: context.req.user?._id,
     });

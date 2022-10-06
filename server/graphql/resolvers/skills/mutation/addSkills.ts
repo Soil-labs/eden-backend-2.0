@@ -70,8 +70,8 @@ const addSkills = async (
 
     return allSkills;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tskillMutation > addSkill",
+    throw new ApolloError(err.message, err.extensions?.code || "addSkill", {
+      component: "SkillsMutation > addSkill",
     });
   }
 };
