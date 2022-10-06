@@ -618,11 +618,6 @@ export type QuerySearchSkillsAutocompleteArgs = {
   request?: InputMaybe<SkillsAutocompleteInput>;
 };
 
-
-export type QueryWaitingToAproveSkillsArgs = {
-  request?: InputMaybe<FindSkillsInput>;
-};
-
 export type RoleTemplate = {
   __typename?: 'RoleTemplate';
   _id?: Maybe<Scalars['ID']>;
