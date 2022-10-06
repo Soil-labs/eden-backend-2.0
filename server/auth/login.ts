@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { Members } from "../models/memberModel";
+import { ACCESS_LEVELS } from "./constants";
 import fetchDiscordUser from "./utils/fetchDiscordUser";
 
 const login = async ({ body }: Request, res: Response) => {
@@ -26,9 +27,13 @@ const login = async ({ body }: Request, res: Response) => {
     }
 
     // Generate auth token
-    const token = jwt.sign({ _id: dbUser._id, discordID: user.id }, process.env.JWT_SECRET || "", {
-      expiresIn: "7d",
-    });
+    const token = jwt.sign(
+      { _id: dbUser._id, discordID: user.id, accessLevel: ACCESS_LEVELS.ALL_ACCESS },
+      process.env.JWT_SECRET || "",
+      {
+        expiresIn: "7d",
+      },
+    );
 
     // Return user and token
     res.json({ discord_user: user, eden_user: dbUser, token });

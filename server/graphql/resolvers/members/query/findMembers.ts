@@ -1,13 +1,17 @@
+import { AuthenticationError } from "apollo-server";
+import { EdenContext } from "../../../../auth/utils/types";
 import { FindMembersCursorOutput } from "../../../../generated";
 import { Members } from "../../../../models/memberModel";
 
 const findMembers = async (
   parent: any,
   { request }: { request: FindMembersCursorOutput },
-  context: any,
+  { req: { user } }: EdenContext,
   info: any,
 ) => {
-  console.log({ request });
+  console.log({ user });
+
+  // Add Minimum access level required to use this resolver
 
   try {
     let members = await Members.find({});
