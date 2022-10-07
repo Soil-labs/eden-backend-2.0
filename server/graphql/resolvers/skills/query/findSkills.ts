@@ -1,4 +1,4 @@
-import { FindSkillsInput, FindSkillsCursorOutput, SkillOrderBy } from "../../../../generated";
+import { FindSkillsInput, FindSkillsCursorOutput, SkillOrderBy, ApprovedSkillEnum } from "../../../../generated";
 import { Skills } from "../../../../models/skillModel";
 import { ApolloError } from "apollo-server-express";
 import mongoose from "mongoose";
@@ -74,15 +74,15 @@ const findSkills = async (
 
   if (_id) {
     searchQuery = {
-      $and: [{ _id: _id }, { state: state ? state : "approved" }],
+      $and: [{ _id: _id }, { state: state ? state : ApprovedSkillEnum.Approved }],
     };
   } else if (lightcastID) {
     searchQuery = {
-      $and: [{ lightcastID: lightcastID }, { state: state ? state : "approved" }],
+      $and: [{ lightcastID: lightcastID }, { state: state ? state : ApprovedSkillEnum.Approved }],
     };
   } else {
     searchQuery = {
-      $and: [{ state: state ? state : "approved" }],
+      $and: [{ state: state ? state : ApprovedSkillEnum.Approved }],
     };
   }
 
