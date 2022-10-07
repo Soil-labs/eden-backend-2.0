@@ -141,6 +141,8 @@ export type Mutation = {
   createRoom?: Maybe<Room>;
   deleteProjectRole?: Maybe<ProjectRole>;
   deleteProjectTeamMember?: Maybe<ProjectTeamMember>;
+  deleteSkillCategory?: Maybe<Scalars['String']>;
+  deleteSkillSubCategory?: Maybe<Scalars['String']>;
   deleteSkillsFromMember?: Maybe<Member>;
   enterRoom?: Maybe<Room>;
   exitRoom?: Maybe<Room>;
@@ -215,6 +217,16 @@ export type MutationDeleteProjectRoleArgs = {
 
 export type MutationDeleteProjectTeamMemberArgs = {
   request?: InputMaybe<DeleteProjectTeamMemberInput>;
+};
+
+
+export type MutationDeleteSkillCategoryArgs = {
+  request?: InputMaybe<DeleteSkillCategoryInput>;
+};
+
+
+export type MutationDeleteSkillSubCategoryArgs = {
+  request?: InputMaybe<DeleteSkillSubCategoryInput>;
 };
 
 
@@ -768,6 +780,16 @@ export type DeleteProjectTeamMemberInput = {
   memberID: Scalars['ID'];
   projectID: Scalars['ID'];
   roleID: Scalars['ID'];
+};
+
+export type DeleteSkillCategoryInput = {
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+};
+
+export type DeleteSkillSubCategoryInput = {
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type EnterExitRoomInput = {

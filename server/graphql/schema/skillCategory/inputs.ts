@@ -6,6 +6,11 @@ export default gql`
     lightcastID: [ID]
   }
 
+  input deleteSkillCategoryInput {
+    _id: [ ID ]
+    lightcastID: [ID]
+  }
+
   input updateSkillCategoryInput {
     _id: ID
     name: String

@@ -14,8 +14,8 @@ const waitingToAproveSkills = async (
     let skills = await Skills.find({ state: "WAITING" });
     return skills;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tskillQuery > waitingToAproveSkills",
+    throw new ApolloError(err.message, err.extensions?.code || "waitingToAproveSkills", {
+      component: "skillQuery > waitingToAproveSkills",
     });
   }
 };

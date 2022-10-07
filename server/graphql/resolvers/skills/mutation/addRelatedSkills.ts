@@ -19,7 +19,6 @@ const addRelatedSkills = async (
 
   skillData = await Skills.findOne({ _id: skillID });
 
-
   relatedSkillsData = await Skills.find({ _id: relatedSkillIDs });
 
   console.log("relatedSkilldata", relatedSkillsData);
@@ -27,7 +26,6 @@ const addRelatedSkills = async (
 
   try {
     for (let i = 0; i < relatedSkillsData.length; i++) {
-
       const skillsArrayToSaveRelatedSkills = skillData.relatedSkills ? skillData.relatedSkills : [];
       const currentRelatedSkill = relatedSkillsData[i];
 
@@ -44,10 +42,12 @@ const addRelatedSkills = async (
         },
         { new: true },
       );
-      
-      const relatedSkilledArray = relatedSkillsData[i].relatedSkills ? relatedSkillsData[i].relatedSkills: <any>[];
+
+      const relatedSkilledArray = relatedSkillsData[i].relatedSkills
+        ? relatedSkillsData[i].relatedSkills
+        : <any>[];
       if (!relatedSkilledArray.includes(skillData._id as Skill)) {
-         relatedSkilledArray.push(skillData._id);
+        relatedSkilledArray.push(skillData._id);
       }
 
       await Skills.findOneAndUpdate(
@@ -60,13 +60,13 @@ const addRelatedSkills = async (
         { new: true },
       );
     }
+    console.log("skillData ", skillData);
+    return skillData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tSkillMutation > addRelatedSkills",
+    throw new ApolloError(err.message, err.extensions?.code || "addRelatedSkills", {
+      component: "SkillMutation > addRelatedSkills",
     });
   }
-  console.log("skillData ", skillData);
-  return skillData;
 };
 
 export default addRelatedSkills;

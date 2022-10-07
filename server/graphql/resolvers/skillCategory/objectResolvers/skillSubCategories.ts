@@ -11,8 +11,8 @@ const skillSubCategories = async (parent: SkillCategory, args: any, context: any
 
     return SkillSubCategoryData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_SEARCH_ERROR", {
-      component: "skillSubCategoryResolver > skillsubCategories",
+    throw new ApolloError(err.message, err.extensions?.code || "skillsubCategories", {
+      component: "SkillCategoryResolver > skillsubCategories",
       user: context.req.user?._id,
     });
   }

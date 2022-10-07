@@ -22,7 +22,7 @@ const findSkillCategories = async (
   } else if (lightcastID) {
     searchQuery = { lightcastID: lightcastID };
   } else {
-    throw new ApolloError("You need to specify the _id or lightcastID of the skill category");
+    searchQuery = {}
   }
 
   try {
@@ -30,8 +30,8 @@ const findSkillCategories = async (
 
     return skillCategoryData;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tskillCategoryQuery > findSkillCategory",
+    throw new ApolloError(err.message, err.extensions?.code || "findSkillCategory", {
+      component: "skillCategoryQuery > findSkillCategory",
     });
   }
 };

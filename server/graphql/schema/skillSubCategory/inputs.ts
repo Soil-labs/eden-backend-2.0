@@ -18,4 +18,10 @@ export default gql`
 
     emoji: String
   }
+
+  input deleteSkillSubCategoryInput {
+    _id: [ ID ]
+    lightcastID: [ID]
+  }
+
 `;
