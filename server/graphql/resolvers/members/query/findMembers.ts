@@ -73,8 +73,6 @@ const findMembers = async (
   let queryServerID: any = [];
   let searchQuery = {};
 
-  
-
   serverID?.forEach(ID => {
     queryServerID.push(ID);
   });
@@ -97,7 +95,7 @@ const findMembers = async (
     }
   }
 
-  console.log("query options ", options)
+  console.log("query options ", options);
 
   try {
     let membersData = await Members.find({ ...searchQuery, ...options.filters })

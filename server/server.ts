@@ -1,4 +1,3 @@
-const { ApolloServerPluginLandingPageLocalDefault } = require("apollo-server-core");
 const express = require("express");
 const { createServer } = require("http");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
@@ -7,13 +6,14 @@ const { useServer } = require("graphql-ws/lib/use/ws");
 const { execute, subscribe } = require("graphql");
 const { ApolloServer } = require("apollo-server-express");
 import mongoose from "mongoose";
-const jwt = require("jsonwebtoken");
-const { ApolloError } = require("apollo-server-express");
+import authRoutes from "./auth";
+import cors from "cors";
 
 require("dotenv").config();
 
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/schema";
+import contextResolver from "./auth/contextResolver";
 
 async function main() {
   const app = express();
@@ -48,26 +48,7 @@ async function main() {
         },
       },
     ],
-    context: ({ req }: { req: any }) => {
-      if (req.body) {
-        req.body.query = req.body.query;
-      }
-      try {
-        req.header["Access-Control-Allow-Origin"] = "*";
-        req.header["Access-Control-Allow-Headers"] =
-          "Origin, X-Requested-With, Content-Type, Accept";
-        if (req.headers.authorization) {
-          req.headers.authorization.replace(/[&#,+()$~%.:*?<>]/g, "");
-          const payload = jwt.decode(req.headers.authorization.replace("Bearer ", ""));
-          const user = { id: payload._id, email: payload.email };
-          req.user = user;
-        }
-      } catch (err) {
-        // console.log(err);
-      }
-
-      return { req };
-    },
+    context: contextResolver,
     formatError: (err: { err: any }) => {
       // logError(err);
       return err;
@@ -125,6 +106,10 @@ async function main() {
   // // console.log(`apolloServer is ready at http://localhost:${PORT}`);
   // // console.log("DATABASE_MONGO = ", DATABASE_MONGO);
   // });
+
+  app.use(cors());
+  app.use("/auth", authRoutes());
+
   httpServer.listen(PORT, () => {
     console.log(`apolloServer is ready at http://localhost:${PORT}/graphql`);
   });

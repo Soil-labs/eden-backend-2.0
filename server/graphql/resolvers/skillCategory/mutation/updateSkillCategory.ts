@@ -5,15 +5,20 @@ import {
   UpdateSkillCategoryInput,
 } from "../../../../generated";
 import { SkillCategory } from "../../../../models/skillCategoryModel";
-import { ApolloError } from "apollo-server-express";
-
+import { ApolloError, AuthenticationError } from "apollo-server-express";
+import { EdenContext } from "../../../../auth/types";
+import { ACCESS_LEVELS } from "../../../../auth/constants";
 
 const updateSkillCategory = async (
   parent: any,
   args: { request: UpdateSkillCategoryInput },
-  context: any,
+  { req: { user } }: EdenContext,
   info: any,
 ) => {
+  if (!(user && user._id && user.accessLevel && user.accessLevel < ACCESS_LEVELS.OPERATOR_ACCESS)) {
+    throw new AuthenticationError("You are Not authorized to perform this action");
+  }
+
   const { _id, name, description, skillsID, subCategoriesSkillID, lightcastID, emoji } =
     args.request;
   console.log("Mutation > updateSkillCategory > args.request = ", args.request);
@@ -27,8 +32,6 @@ const updateSkillCategory = async (
   if (subCategoriesSkillID) fields.skillSubCategories = subCategoriesSkillID as SkillSubCategory[];
   if (lightcastID) fields.lightcastID = lightcastID;
   if (emoji) fields.emoji = emoji;
-
- 
 
   try {
     let skillCategoryData;
@@ -56,7 +59,7 @@ const updateSkillCategory = async (
       skillCategoryData = await new SkillCategory(fields);
       skillCategoryData.save();
     }
-    console.log("skillcategory data", skillCategoryData)
+    console.log("skillcategory data", skillCategoryData);
     return skillCategoryData;
   } catch (err: any) {
     throw new ApolloError(err.message, err.extensions?.code || "updateSkillCategory", {
