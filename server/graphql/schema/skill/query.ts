@@ -12,7 +12,7 @@ export default gql`
       limit: Int
     ): FindSkillsCursorOutput
 
-    waitingToAproveSkills(request: findSkillsInput): [Skill]
+    waitingToAproveSkills: [Skill]
 
     # TODO: Merge this into findSkills
     searchSkillsAutocomplete(request: skillsAutocompleteInput): [Skill]

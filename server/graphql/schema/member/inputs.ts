@@ -4,7 +4,7 @@ export default gql`
   # ---------- QUERY - Functions --------------
   input findMemberInput {
     discordID: String
-    serverID: [String]
+    id: ID
   }
 
   #  ------- findMembers ------

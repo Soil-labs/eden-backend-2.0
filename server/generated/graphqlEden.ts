@@ -133,7 +133,7 @@ export type Mutation = {
   addProject?: Maybe<Project>;
   addProjectRole?: Maybe<ProjectRole>;
   addProjectTeamMember?: Maybe<ProjectTeamMember>;
-  addRelatedSkills?: Maybe<Array<Maybe<Skill>>>;
+  addRelatedSkills?: Maybe<Skill>;
   addSkill?: Maybe<Skill>;
   addSkills?: Maybe<Array<Maybe<Skill>>>;
   addSkillsToMember?: Maybe<Member>;
@@ -618,11 +618,6 @@ export type QuerySearchSkillsAutocompleteArgs = {
   request?: InputMaybe<SkillsAutocompleteInput>;
 };
 
-
-export type QueryWaitingToAproveSkillsArgs = {
-  request?: InputMaybe<FindSkillsInput>;
-};
-
 export type RoleTemplate = {
   __typename?: 'RoleTemplate';
   _id?: Maybe<Scalars['ID']>;
@@ -681,7 +676,7 @@ export type SkillCategory = {
   emoji?: Maybe<Scalars['String']>;
   lightcastID?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  skillSubCategories?: Maybe<Array<Maybe<SkillCategory>>>;
+  skillSubCategories?: Maybe<Array<Maybe<SkillSubCategory>>>;
   skills?: Maybe<Array<Maybe<Skill>>>;
 };
 
@@ -739,6 +734,7 @@ export type AddRelatedSkillsInput = {
 
 export type AddSkillInput = {
   categorySkillID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  description?: InputMaybe<Scalars['String']>;
   lightcastID?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   relatedSkillID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
@@ -781,7 +777,7 @@ export type EnterExitRoomInput = {
 
 export type FindMemberInput = {
   discordID?: InputMaybe<Scalars['String']>;
-  serverID?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  id?: InputMaybe<Scalars['ID']>;
 };
 
 export type FindMembersInput = {
@@ -830,7 +826,8 @@ export type FindServerInput = {
 };
 
 export type FindSkillCategoriesInput = {
-  skillCategories?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type FindSkillInput = {
@@ -839,7 +836,8 @@ export type FindSkillInput = {
 };
 
 export type FindSkillSubCategoriesInput = {
-  skillSubCategories?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type FindSkillsInput = {
