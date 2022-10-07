@@ -28,7 +28,7 @@ const login = async ({ body }: Request, res: Response) => {
 
     // Generate auth token
     const token = jwt.sign(
-      { _id: dbUser._id, discordID: user.id, accessLevel: ACCESS_LEVELS.ALL_ACCESS },
+      { _id: dbUser._id, discordID: user.id, accessLevel: ACCESS_LEVELS.MEMBER_ACCESS },
       process.env.JWT_SECRET || "",
       {
         expiresIn: "7d",
