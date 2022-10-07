@@ -1,7 +1,7 @@
 import { AuthenticationError } from "apollo-server";
-import { Request, Response } from "express";
-import jwt, { JwtPayload } from "jsonwebtoken";
-import { EdenJWTPayload, EdenRequest } from "./utils/types";
+import { Response } from "express";
+import jwt from "jsonwebtoken";
+import { EdenJWTPayload, EdenRequest } from "./types";
 
 const contextResolver = ({ req, req: { headers }, res }: { req: EdenRequest; res: Response }) => {
   try {
