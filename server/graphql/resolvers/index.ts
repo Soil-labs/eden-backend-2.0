@@ -10,6 +10,8 @@ import members from "./members";
 import skills from "./skills";
 import skillCategory from "./skillCategory";
 import skillSubCategory from "./skillSubCategory";
+import server from "./server";
+import serverMutation from "./server/mutation"
 
 const resolvers = {
   Query: {
@@ -22,13 +24,15 @@ const resolvers = {
     ...skillMutations,
     ...memberMutations,
     ...skillSubCategoryMutation,
-    ...skillCategoryMutation
+    ...skillCategoryMutation,
+    ...serverMutation
     
   },
   ...members,
   ...skills,
   ...skillCategory,
-  ...skillSubCategory
+  ...skillSubCategory,
+  ...server
 };
 
 export default resolvers;

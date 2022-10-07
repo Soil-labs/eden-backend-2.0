@@ -142,6 +142,7 @@ export type Mutation = {
   deleteProjectRole?: Maybe<ProjectRole>;
   deleteProjectTeamMember?: Maybe<ProjectTeamMember>;
   deleteSkillCategory?: Maybe<Scalars['String']>;
+  deleteSkillSubCategory?: Maybe<Scalars['String']>;
   deleteSkillsFromMember?: Maybe<Member>;
   enterRoom?: Maybe<Room>;
   exitRoom?: Maybe<Room>;
@@ -221,6 +222,11 @@ export type MutationDeleteProjectTeamMemberArgs = {
 
 export type MutationDeleteSkillCategoryArgs = {
   request?: InputMaybe<DeleteSkillCategoryInput>;
+};
+
+
+export type MutationDeleteSkillSubCategoryArgs = {
+  request?: InputMaybe<DeleteSkillSubCategoryInput>;
 };
 
 
