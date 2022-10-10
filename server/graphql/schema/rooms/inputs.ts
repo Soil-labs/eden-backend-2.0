@@ -19,7 +19,7 @@ export default gql`
   input updateMemberInRoomInput {
     roomID: ID
     memberID: ID
-    updateMember: updateMemberInput
+    updateMember: updateMemberFullDetailsInput
   }
   #  ----------- Room ----------------
 `;
