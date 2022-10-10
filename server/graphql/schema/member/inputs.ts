@@ -34,6 +34,49 @@ export default gql`
     avatar: String
     discriminator: String
   }
+
+  input updateMemberFullDetailsInput {
+    _id: ID
+    discordID: String
+    name: String
+    avatar: String
+    discriminator: String
+    onbording: OnboardingInput
+    general: GeneralInput
+    skills: [SkillAndLevelInput]
+    projects: [ProjectOfMemberInput]
+    servers: [ID]
+  }
+
+  input OnboardingInput {
+    signup: Boolean
+    percentage: Int
+  }
+
+  input GeneralInput {
+    content: ContentInput
+    hoursPerWeek: Float
+    timeZone: String
+    links: [LinkInput]
+  }
+
+  input ContentInput {
+    bio: String
+    interest: String
+    mostProud: String
+    showCaseAbility: String
+  }
+
+  input ProjectOfMemberInput {
+    projectID: ID
+    projectRoleID: ID
+    phase: PhaseProjectRoleEnum
+  }
+
+
+  
+
+
   # ------- Member General - Functions ------
 
   # ------- Member Skills - Functions ------

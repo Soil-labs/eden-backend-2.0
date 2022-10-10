@@ -5,4 +5,11 @@ export default gql`
     field: OrderField
     direction: OrderDirection
   }
+
+  input LinkInput {
+    name: nameEnum
+    url: String
+    nameCustom: String
+    imgCustom: String
+  }
 `;
