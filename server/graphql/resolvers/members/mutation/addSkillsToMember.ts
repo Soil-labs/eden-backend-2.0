@@ -36,8 +36,8 @@ const addSkillsToMember = async (
       throw new Error("Member not found");
     }
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tmemberMutation > addSkillsToMember",
+    throw new ApolloError(err.message, err.extensions?.code || "addSkillsToMember", {
+      component: "MemberMutation > addSkillsToMember",
     });
   }
 };

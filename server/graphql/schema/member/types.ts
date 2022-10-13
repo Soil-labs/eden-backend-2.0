@@ -68,12 +68,7 @@ export default gql`
   """
   All the content that the user has created during signup ✍️
   """
-  type Content {
-    bio: String
-    interest: String
-    mostProud: String
-    showCaseAbility: String
-  }
+  
 
   type FindMembersCursorOutput {
     members: [Member]

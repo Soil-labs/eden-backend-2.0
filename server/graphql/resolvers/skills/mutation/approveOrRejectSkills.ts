@@ -38,8 +38,8 @@ const approveOrRejectSkills = async (
     }
     return skillsApproveRejectArray;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tSkillMutation > approveOrRejectSkills",
+    throw new ApolloError(err.message, err.extensions?.code || "approveOrRejectSkills", {
+      component: "SkillsMutation > approveOrRejectSkills",
     });
   }
 };

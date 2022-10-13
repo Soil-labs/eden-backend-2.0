@@ -25,7 +25,6 @@ export type Budget = {
   totalBudget?: Maybe<Scalars['String']>;
 };
 
-/** All the content that the user has created during signup ✍️ */
 export type Content = {
   __typename?: 'Content';
   bio?: Maybe<Scalars['String']>;
@@ -34,11 +33,19 @@ export type Content = {
   showCaseAbility?: Maybe<Scalars['String']>;
 };
 
+export type ContentInput = {
+  bio?: InputMaybe<Scalars['String']>;
+  interest?: InputMaybe<Scalars['String']>;
+  mostProud?: InputMaybe<Scalars['String']>;
+  showCaseAbility?: InputMaybe<Scalars['String']>;
+};
+
 export type DeleteSkillsFromMemberInput = {
   memberID: Scalars['ID'];
   skills: Array<Scalars['ID']>;
 };
 
+/** All the content that the user has created during signup ✍️ */
 export type FindMembersCursorOutput = {
   __typename?: 'FindMembersCursorOutput';
   members?: Maybe<Array<Maybe<Member>>>;
@@ -73,6 +80,13 @@ export type General = {
   timeZone?: Maybe<Scalars['String']>;
 };
 
+export type GeneralInput = {
+  content?: InputMaybe<ContentInput>;
+  hoursPerWeek?: InputMaybe<Scalars['Float']>;
+  links?: InputMaybe<Array<InputMaybe<LinkInput>>>;
+  timeZone?: InputMaybe<Scalars['String']>;
+};
+
 /** 💡 You can either use the handle or the url of the link */
 export type Link = {
   __typename?: 'Link';
@@ -83,6 +97,13 @@ export type Link = {
   nameCustom?: Maybe<Scalars['String']>;
   /** The url need to be constracted at the Front, even if only the handle is used, the backEnd need to take the whole url */
   url?: Maybe<Scalars['String']>;
+};
+
+export type LinkInput = {
+  imgCustom?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<NameEnum>;
+  nameCustom?: InputMaybe<Scalars['String']>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
 export type MatchProjectInfo = {
@@ -141,6 +162,8 @@ export type Mutation = {
   createRoom?: Maybe<Room>;
   deleteProjectRole?: Maybe<ProjectRole>;
   deleteProjectTeamMember?: Maybe<ProjectTeamMember>;
+  deleteSkillCategory?: Maybe<Scalars['String']>;
+  deleteSkillSubCategory?: Maybe<Scalars['String']>;
   deleteSkillsFromMember?: Maybe<Member>;
   enterRoom?: Maybe<Room>;
   exitRoom?: Maybe<Room>;
@@ -215,6 +238,16 @@ export type MutationDeleteProjectRoleArgs = {
 
 export type MutationDeleteProjectTeamMemberArgs = {
   request?: InputMaybe<DeleteProjectTeamMemberInput>;
+};
+
+
+export type MutationDeleteSkillCategoryArgs = {
+  request?: InputMaybe<DeleteSkillCategoryInput>;
+};
+
+
+export type MutationDeleteSkillSubCategoryArgs = {
+  request?: InputMaybe<DeleteSkillSubCategoryInput>;
 };
 
 
@@ -301,6 +334,11 @@ export type Onboarding = {
   percentage?: Maybe<Scalars['Int']>;
   /** 💡 If someone finish the basic signup, this variable will be true */
   signup?: Maybe<Scalars['Boolean']>;
+};
+
+export type OnboardingInput = {
+  percentage?: InputMaybe<Scalars['Int']>;
+  signup?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type OrderBy = {
@@ -397,6 +435,12 @@ export type ProjectOfMember = {
   info?: Maybe<Project>;
   phase?: Maybe<PhaseProjectRoleEnum>;
   role?: Maybe<ProjectRole>;
+};
+
+export type ProjectOfMemberInput = {
+  phase?: InputMaybe<PhaseProjectRoleEnum>;
+  projectID?: InputMaybe<Scalars['ID']>;
+  projectRoleID?: InputMaybe<Scalars['ID']>;
 };
 
 export type ProjectOrderBy = {
@@ -770,6 +814,16 @@ export type DeleteProjectTeamMemberInput = {
   roleID: Scalars['ID'];
 };
 
+export type DeleteSkillCategoryInput = {
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+};
+
+export type DeleteSkillSubCategoryInput = {
+  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  lightcastID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+};
+
 export type EnterExitRoomInput = {
   memberID?: InputMaybe<Scalars['ID']>;
   roomID?: InputMaybe<Scalars['ID']>;
@@ -917,10 +971,23 @@ export type SkillsAutocompleteInput = {
   search?: InputMaybe<Scalars['String']>;
 };
 
+export type UpdateMemberFullDetailsInput = {
+  _id?: InputMaybe<Scalars['ID']>;
+  avatar?: InputMaybe<Scalars['String']>;
+  discordID?: InputMaybe<Scalars['String']>;
+  discriminator?: InputMaybe<Scalars['String']>;
+  general?: InputMaybe<GeneralInput>;
+  name?: InputMaybe<Scalars['String']>;
+  onbording?: InputMaybe<OnboardingInput>;
+  projects?: InputMaybe<Array<InputMaybe<ProjectOfMemberInput>>>;
+  servers?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  skills?: InputMaybe<Array<InputMaybe<SkillAndLevelInput>>>;
+};
+
 export type UpdateMemberInRoomInput = {
   memberID?: InputMaybe<Scalars['ID']>;
   roomID?: InputMaybe<Scalars['ID']>;
-  updateMember?: InputMaybe<UpdateMemberInput>;
+  updateMember?: InputMaybe<UpdateMemberFullDetailsInput>;
 };
 
 export type UpdateMemberInput = {

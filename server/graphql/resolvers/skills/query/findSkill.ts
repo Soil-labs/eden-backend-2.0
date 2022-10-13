@@ -25,8 +25,8 @@ const findSkill = async (
     const skill = await Skills.findOne(searchQuery);
     return skill;
   } catch (err: any) {
-    throw new ApolloError(err.message, err.extensions?.code || "DATABASE_FIND_TWEET_ERROR", {
-      component: "tmemberQuery > findSkill",
+    throw new ApolloError(err.message, err.extensions?.code || "findSkill", {
+      component: "SkillQuery > findSkill",
     });
   }
 };
