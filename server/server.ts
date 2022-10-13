@@ -48,7 +48,7 @@ async function main() {
         },
       },
     ],
-    context: contextResolver,
+    context: process.env.NO_AUTH && process.env.NO_AUTH === "true" ? null : contextResolver,
     formatError: (err: { err: any }) => {
       // logError(err);
       return err;
