@@ -91,6 +91,7 @@ async function main() {
   // Data parsing
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
+  app.use(express.cookieParser());
 
   if (process.env.NODE_ENV === "production") {
     app.use(({ req, res, next }: { req: any; res: any; next: any }) => {

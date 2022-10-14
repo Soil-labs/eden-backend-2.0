@@ -35,6 +35,17 @@ const login = async ({ body }: Request, res: Response) => {
       },
     );
 
+    let isProduction = process.env.NODE_ENV === "production";
+
+    // Set Cookie
+    res.cookie("edenAuthToken", token, {
+      sameSite: isProduction ? "strict" : "none",
+      secure: isProduction,
+      maxAge: 604800000, // 7 days
+      httpOnly: isProduction,
+      domain: isProduction ? "*.vercel.app" : "localhost", // Change *.vercel.app to the domain of the website on production
+    });
+
     // Return user and token
     res.json({ discord_user: user, eden_user: dbUser, token });
   } catch (error: any) {
