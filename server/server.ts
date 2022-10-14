@@ -8,6 +8,7 @@ const { ApolloServer } = require("apollo-server-express");
 import mongoose from "mongoose";
 import authRoutes from "./auth";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 require("dotenv").config();
 
@@ -91,11 +92,11 @@ async function main() {
   // Data parsing
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
-  app.use(express.cookieParser());
+  app.use(cookieParser());
 
   if (process.env.NODE_ENV === "production") {
     app.use(({ req, res, next }: { req: any; res: any; next: any }) => {
-      if (req.header("x-forwarded-proto") !== "https")
+      if (req && req.header("x-forwarded-proto") !== "https")
         res.redirect(`https://${req.header("host")}${req.url}`);
       else next();
     });

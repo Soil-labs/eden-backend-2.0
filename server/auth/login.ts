@@ -13,7 +13,6 @@ const login = async ({ body }: Request, res: Response) => {
 
     // Find if user is in database
     const dbUser = await Members.findOne({ discordId: user.id });
-    console.log({ dbUser });
 
     // if user is not in database, save user to database
     if (!dbUser) {
