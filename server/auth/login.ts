@@ -12,12 +12,12 @@ const login = async ({ body }: Request, res: Response) => {
     const user = await fetchDiscordUser(code, redirect_uri);
 
     // Find if user is in database
-    const dbUser = await Members.findOne({ discordId: user.id });
+    let dbUser = await Members.findOne({ discordId: user.id });
     console.log({ dbUser });
 
     // if user is not in database, save user to database
     if (!dbUser) {
-      await Members.create({
+      dbUser = await Members.create({
         discordID: user.id,
         name: user.name,
         avatar: user.avatar,
