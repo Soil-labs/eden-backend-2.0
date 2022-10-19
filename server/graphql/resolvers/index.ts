@@ -14,13 +14,16 @@ import server from "./server";
 import serverMutation from "./server/mutation"
 import room from "./room";
 import roomMutation from "./room/mutation";
+import projects from "./projects"
+import projectQueries from "./projects/query"
 
 const resolvers = {
   Query: {
     ...skillQueries,
     ...memberQueries,
     ...skillCategoryQueries,
-    ...skillSubCategoryQueries
+    ...skillSubCategoryQueries,
+    ...projectQueries
   },
   Mutation: {
     ...skillMutations,
@@ -36,7 +39,8 @@ const resolvers = {
   ...skillCategory,
   ...skillSubCategory,
   ...server,
-  ...room
+  ...room,
+  ...projects
 };
 
 export default resolvers;
