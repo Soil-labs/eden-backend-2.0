@@ -1,4 +1,5 @@
 import { Rooms } from "../../../../models/roomModel";
+import { Members } from "../../../../models/memberModel";
 import { ApolloError } from "apollo-server-express";
 import { EnterExitRoomInput } from "../../../../generated";
 import { PubSub } from "graphql-subscriptions";
@@ -24,6 +25,9 @@ const enterRoom = async (
     let roomData: any;
     roomData = await Rooms.findOne({ _id: fields.roomID });
     if (!roomData) throw new ApolloError("RoomId does Not exists");
+    const member = await Members.findOne({ _id: memberID });
+    if (!member) throw new ApolloError("Member does not exist with the passed memberID");
+
     const isMemberInTheRoom = roomData.members?.indexOf(memberID) === -1 ? false : true;
     if (!isMemberInTheRoom) {
       const updatedMember = [...roomData.members, memberID];
