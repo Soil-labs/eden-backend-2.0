@@ -854,11 +854,13 @@ export type FindProjectInput = {
 };
 
 export type FindProjectRoleInput = {
-  _id: Scalars['ID'];
+  projectID: Scalars['ID'];
+  roleID?: InputMaybe<Scalars['ID']>;
 };
 
 export type FindProjectRolesInput = {
-  _id?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  projectID?: InputMaybe<Scalars['ID']>;
+  roleID?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
 export type FindProjectsInput = {

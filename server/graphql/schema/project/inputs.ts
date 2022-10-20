@@ -21,11 +21,13 @@ export default gql`
 
   # ------- Project Role - Functions ------
   input findProjectRoleInput {
-    _id: ID!
+    projectID: ID!
+    roleID: ID
   }
 
   input findProjectRolesInput {
-    _id: [ID]
+    projectID: ID
+    roleID: [ID]
   }
   # ------- Project Role - Functions ------
 
