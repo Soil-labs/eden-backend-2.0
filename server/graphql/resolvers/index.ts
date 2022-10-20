@@ -12,10 +12,12 @@ import skillCategory from "./skillCategory";
 import skillSubCategory from "./skillSubCategory";
 import server from "./server";
 import serverMutation from "./server/mutation"
+import serverQueries from "./server/query"
 import room from "./room";
 import roomMutation from "./room/mutation";
 import projects from "./projects"
-import projectQueries from "./projects/query"
+import projectQueries from "./projects/query";
+
 
 const resolvers = {
   Query: {
@@ -23,7 +25,8 @@ const resolvers = {
     ...memberQueries,
     ...skillCategoryQueries,
     ...skillSubCategoryQueries,
-    ...projectQueries
+    ...projectQueries,
+    ...serverQueries
   },
   Mutation: {
     ...skillMutations,
