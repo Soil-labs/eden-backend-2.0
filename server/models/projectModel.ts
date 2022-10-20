@@ -44,6 +44,9 @@ const projectSchema = mongoose.Schema({
     },
   ],
 
+  serverID: [String],
+  gardenServerID: String,
+
   registeredAt: {
     type: Date,
     default: Date.now,
