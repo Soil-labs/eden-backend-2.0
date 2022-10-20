@@ -10,7 +10,6 @@ const findRoom = async (
 ): Promise<Room[]> => {
   const { _id } = args.request;
   console.log("Query > findRoom > args.request = ", args.request);
-
   let searchTerm = {};
 
   if (_id) {
