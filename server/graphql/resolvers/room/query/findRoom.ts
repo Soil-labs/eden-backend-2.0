@@ -9,7 +9,7 @@ const findRoom = async (
   info: any,
 ): Promise<Room[]> => {
   const { _id } = args.request;
-  console.log("Query > findRoom > args.requesy = ", args.request);
+  console.log("Query > findRoom > args.request = ", args.request);
 
   let searchTerm = {};
 
