@@ -6,6 +6,7 @@ export default gql`
   type Project {
     _id: ID
     title: String
+    description: String
 
     """
     Team Members of the Project
