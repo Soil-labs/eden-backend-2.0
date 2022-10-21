@@ -1026,9 +1026,10 @@ export type UpdateProjectInput = {
 };
 
 export type UpdateProjectRoleInput = {
-  /** The ID of the Role */
-  _id: Scalars['ID'];
   description?: InputMaybe<Scalars['String']>;
+  /** The ID of the Role */
+  projectID: Scalars['ID'];
+  roleID: Scalars['ID'];
   title?: InputMaybe<Scalars['String']>;
 };
 
