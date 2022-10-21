@@ -762,6 +762,7 @@ export type AddProjectInput = {
 
 export type AddProjectRoleInput = {
   description?: InputMaybe<Scalars['String']>;
+  projectID: Scalars['ID'];
   title?: InputMaybe<Scalars['String']>;
 };
 

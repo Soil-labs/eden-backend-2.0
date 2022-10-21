@@ -19,7 +19,7 @@ const projectSchema = mongoose.Schema({
     {
       _id: String,
       title: String,
-      conent: {
+      content: {
         description: String,
         dateRangeStart: String,
         dateRangeEnd: String,

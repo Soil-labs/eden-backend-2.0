@@ -16,6 +16,8 @@ const findProject = async (
     let projectData = await Projects.findOne({ _id: _id });
     if (!projectData) throw new ApolloError("Project not found");
 
+    console.log("projectData ", projectData)
+
     return projectData;
   } catch (err: any) {
     throw new ApolloError(err.message, err.extensions?.code || "findProject", {

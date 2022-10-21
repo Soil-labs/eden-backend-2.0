@@ -20,6 +20,7 @@
     "@graphql-codegen/typescript-operations": "^2.5.3",
     "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.7.16",
+    "@types/uuid": "^8.3.4",
     "prettier": "^2.7.1",
     "typescript": "^4.8.3"
   },
@@ -51,6 +52,7 @@
     "ts-node": "^10.9.1",
     "tsc-watch": "^5.0.3",
     "twilio": "^3.74.0",
+    "uuid": "^9.0.0",
     "validator": "^13.6.0",
     "ws": "^8.8.1"
   }
