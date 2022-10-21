@@ -18,6 +18,7 @@ import roomMutation from "./room/mutation";
 import roomQueries from "./room/query"
 import projects from "./projects"
 import projectQueries from "./projects/query";
+import projectMutation from "./projects/mutation"
 
 
 const resolvers = {
@@ -36,7 +37,8 @@ const resolvers = {
     ...skillSubCategoryMutation,
     ...skillCategoryMutation,
     ...serverMutation,
-    ...roomMutation
+    ...roomMutation,
+    ...projectMutation
     
   },
   ...members,
