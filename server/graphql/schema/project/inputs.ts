@@ -58,7 +58,8 @@ export default gql`
     """
     The ID of the Role
     """
-    _id: ID!
+    projectID: ID!
+    roleID: ID!
     title: String
     description: String
   }
