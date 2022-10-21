@@ -48,7 +48,7 @@ async function main() {
         },
       },
     ],
-    context: contextResolver,
+    //context: contextResolver,  #uncomment to allow authorization
     formatError: (err: { err: any }) => {
       // logError(err);
       return err;
