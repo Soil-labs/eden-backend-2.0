@@ -15,6 +15,7 @@ import serverMutation from "./server/mutation"
 import serverQueries from "./server/query"
 import room from "./room";
 import roomMutation from "./room/mutation";
+import roomQueries from "./room/query"
 import projects from "./projects"
 import projectQueries from "./projects/query";
 
@@ -26,7 +27,8 @@ const resolvers = {
     ...skillCategoryQueries,
     ...skillSubCategoryQueries,
     ...projectQueries,
-    ...serverQueries
+    ...serverQueries,
+    ...roomQueries
   },
   Mutation: {
     ...skillMutations,
