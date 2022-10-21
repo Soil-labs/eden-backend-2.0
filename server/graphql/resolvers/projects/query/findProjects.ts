@@ -1,9 +1,5 @@
 import { Projects } from "../../../../models/projectModel";
-import {
-  FindProjectsInput,
-  ProjectOrderBy,
-  FindProjectsCursorOutput,
-} from "../../../../generated";
+import { FindProjectsInput, ProjectOrderBy, FindProjectsCursorOutput } from "../../../../generated";
 import { ApolloError } from "apollo-server-express";
 import mongoose from "mongoose";
 
@@ -32,7 +28,7 @@ const findProjects = async (
     before,
   } = args;
 
-  console.log("Query > findProjects > args.fields = ", args);
+  console.log("Query > findProjects > args.request = ", args);
 
   let options: SearchOptions = {
     limit: limit || DEFAULT_PAGE_LIMIT,
@@ -101,10 +97,14 @@ const findProjects = async (
     }
   }
 
+
+
   try {
     let projectsData = await Projects.find({ ...searchQuery, ...options.filters })
       .sort(options.sort)
       .limit(options.limit);
+
+      
 
     if (before) projectsData.reverse();
 
@@ -118,15 +118,19 @@ const findProjects = async (
           }))
         : !!before;
 
+      
+
     let hasPrevPage =
       projectsData.length > 0
         ? !!(await Projects.findOne({
             ...searchQuery,
             [options.field]: {
-              [than_key_prev]: Projects[0][options.field],
+              [than_key_prev]: projectsData[0][options.field],
             },
           }))
         : !!after;
+
+   
     let pageInfo = {
       hasNextPage,
       hasPrevPage,
