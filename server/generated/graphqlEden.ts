@@ -404,6 +404,7 @@ export enum PhaseProjectTeamMemberEnum {
 export type Project = {
   __typename?: 'Project';
   _id?: Maybe<Scalars['ID']>;
+  description?: Maybe<Scalars['String']>;
   gardenServerID?: Maybe<Scalars['String']>;
   /** Available Roles of the Project */
   roles?: Maybe<Array<Maybe<ProjectRole>>>;
@@ -761,6 +762,7 @@ export type AddProjectInput = {
 
 export type AddProjectRoleInput = {
   description?: InputMaybe<Scalars['String']>;
+  projectID: Scalars['ID'];
   title?: InputMaybe<Scalars['String']>;
 };
 

@@ -51,6 +51,7 @@ export default gql`
   input addProjectRoleInput {
     title: String
     description: String
+    projectID: ID!
   }
 
   input updateProjectRoleInput {
