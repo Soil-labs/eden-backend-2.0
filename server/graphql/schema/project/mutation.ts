@@ -14,7 +14,7 @@ export default gql`
 
     updateProjectRole(request: updateProjectRoleInput!): ProjectRole
 
-    deleteProjectRole(_id: ID!): ProjectRole
+    deleteProjectRole(request: deleteProjectRoleInput!): ProjectRole
 
     # ------- Project Team Member ------
     addProjectTeamMember(request: addProjectTeamMemberInput!): ProjectTeamMember

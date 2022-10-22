@@ -84,6 +84,11 @@ export default gql`
     roleID: ID!
   }
 
+  input deleteProjectRoleInput {
+    projectID: ID!
+    roleID: ID!
+  }
+
   input ProjectOrderBy {
     field: OrderableProjectField
     direction: OrderDirection
