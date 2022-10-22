@@ -232,7 +232,7 @@ export type MutationCreateRoomArgs = {
 
 
 export type MutationDeleteProjectRoleArgs = {
-  _id: Scalars['ID'];
+  request: DeleteProjectRoleInput;
 };
 
 
@@ -808,6 +808,11 @@ export type DatesType = {
   __typename?: 'datesType';
   complition?: Maybe<Scalars['String']>;
   kickOff?: Maybe<Scalars['String']>;
+};
+
+export type DeleteProjectRoleInput = {
+  projectID: Scalars['ID'];
+  roleID: Scalars['ID'];
 };
 
 export type DeleteProjectTeamMemberInput = {
