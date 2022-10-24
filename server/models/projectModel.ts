@@ -7,7 +7,7 @@ const projectSchema = mongoose.Schema({
   teamMembers: [
     {
       memberID: String,
-      roleID: mongoose.Schema.Types.ObjectId,
+      roleID: String,
       phase: {
         type: String,
         enum: ["SHORTLISTED", "ENGAGED", "COMMITTED", "REJECTED", "INVITED"],
