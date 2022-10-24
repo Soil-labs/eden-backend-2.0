@@ -4,6 +4,7 @@ import addProjectRole from "./addProjectRole";
 import updateProjectRole from "./updateProjectRole";
 import deleteProjectRole from "./deleteProjectRole"
 import addProjectTeamMember from "./addProjectTeamMember";
+import updateProjectTeamMember from "./updateProjectTeamMember"
 
 
 export default {
@@ -12,5 +13,6 @@ export default {
     addProjectRole,
     updateProjectRole,
     deleteProjectRole,
-    addProjectTeamMember
+    addProjectTeamMember,
+    updateProjectTeamMember
 }
