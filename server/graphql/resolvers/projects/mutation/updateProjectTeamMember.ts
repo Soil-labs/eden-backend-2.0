@@ -55,7 +55,7 @@ const updateProjectTeamMember = async (
 
     //save the edit to the 🇩B
 
-    await Projects.findOneAndUpdate(
+    project = await Projects.findOneAndUpdate(
       {
         _id: projectID,
       },
@@ -63,6 +63,8 @@ const updateProjectTeamMember = async (
 
       { new: true },
     );
+
+    console.log("project", project);
     return {
       info: member,
       role: role,
