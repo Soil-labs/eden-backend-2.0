@@ -16,7 +16,7 @@ const updateProjectTeamMember = async (
   info: any,
 ): Promise<ProjectTeamMember> => {
   const { memberID, projectID, phase, roleID } = args.request;
-  console.log("Mutation > addProjectTeamMember > args.request = ", args.request);
+  console.log("Mutation > updateProjectTeamMember > args.request = ", args.request);
 
   if (!projectID && !memberID && !roleID)
     throw new ApolloError("The projectID, roleID and memberID is required");
